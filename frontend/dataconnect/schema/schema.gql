@@ -1,0 +1,19 @@
+type UserProgress @table(key: ["userId", "lessonId"]) {
+  userId: String!
+  lessonId: String!
+  learnIndex: Int!
+  p2Stars: String!
+  p3Score: Int
+  p4LinksCount: Int!
+  # Thêm dòng này để định nghĩa cột thời gian cập nhật tự động
+  updatedAt: Timestamp! @default(expr: "request.time")
+}
+
+# schema.gql
+
+type UserProfile @table(name: "user_profiles", key: "id") {
+  id: String! # This will hold the exact Firebase Auth UID
+  username: String!
+  email: String!
+  role: String! @default(value: "student") # Defaults to student if not specified
+}

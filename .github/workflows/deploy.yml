@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches: [production]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            cd "lms(deploy)" || cd "LMS(Deploy)"
+            git fetch origin
+            git checkout production
+            git pull origin production
+            docker compose down
+            docker compose up -d --build

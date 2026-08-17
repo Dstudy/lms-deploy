@@ -1,0 +1,65 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "apple",
+      "description": "A juicy red apple",
+      "imageUrl": "https://picsum.photos/seed/apple/600/400",
+      "imageHint": "red apple"
+    },
+    {
+      "id": "banana",
+      "description": "A yellow banana",
+      "imageUrl": "https://picsum.photos/seed/banana/600/400",
+      "imageHint": "yellow banana"
+    },
+    {
+      "id": "cat",
+      "description": "A cute kitten",
+      "imageUrl": "https://picsum.photos/seed/cat/600/400",
+      "imageHint": "cute cat"
+    },
+    {
+      "id": "dog",
+      "description": "A friendly puppy",
+      "imageUrl": "https://picsum.photos/seed/dog/600/400",
+      "imageHint": "happy dog"
+    },
+    {
+      "id": "sun",
+      "description": "The bright sun",
+      "imageUrl": "https://picsum.photos/seed/sun/600/400",
+      "imageHint": "bright sun"
+    },
+    {
+      "id": "moon",
+      "description": "The night moon",
+      "imageUrl": "https://picsum.photos/seed/moon/600/400",
+      "imageHint": "night moon"
+    },
+    {
+      "id": "bird",
+      "description": "A small blue bird",
+      "imageUrl": "https://picsum.photos/seed/bird/600/400",
+      "imageHint": "blue bird"
+    },
+    {
+      "id": "fish",
+      "description": "A swimming fish",
+      "imageUrl": "https://picsum.photos/seed/fish/600/400",
+      "imageHint": "gold fish"
+    },
+    {
+      "id": "car",
+      "description": "A red toy car",
+      "imageUrl": "https://picsum.photos/seed/car/600/400",
+      "imageHint": "red car"
+    },
+    {
+      "id": "tree",
+      "description": "A green tree",
+      "imageUrl": "https://picsum.photos/seed/tree/600/400",
+      "imageHint": "green tree"
+    }
+  ]
+}

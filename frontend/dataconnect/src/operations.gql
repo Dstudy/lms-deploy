@@ -1,0 +1,78 @@
+# 1. Query lấy tiến trình của 1 bài học cụ thể
+query GetUserProgress($lessonId: String!) @auth(level: USER) {
+  userProgress(key: { userId_expr: "auth.uid", lessonId: $lessonId }) {
+    learnIndex
+    p2Stars
+    p3Score
+    p4LinksCount
+  }
+}
+
+# Query lấy danh sách tiến trình (cho trang tổng quan)
+query GetUserProgressList($lessonIds: [String!]!) @auth(level: USER) {
+  userProgresses(where: { lessonId: { in: $lessonIds } }) {
+    userId
+    lessonId
+    learnIndex
+    p2Stars
+    p3Score
+    p4LinksCount
+    updatedAt
+  }
+}
+
+# 2. Mutation thực hiện Upsert (Ghi đè/Tạo mới tiến trình)
+# Các tham số này sẽ map trực tiếp vào hàm sinh tự động của Firebase
+mutation SaveUserProgress(
+  $lessonId: String!
+  $learnIndex: Int!
+  $p2Stars: String!
+  $p3Score: Int
+  $p4LinksCount: Int!
+) @auth(level: USER) {
+  userProgress_upsert(
+    data: {
+      userId_expr: "auth.uid" # Hệ thống tự lấy UID từ token auth gắn vào PostgreSQL
+      lessonId: $lessonId
+      learnIndex: $learnIndex
+      p2Stars: $p2Stars
+      p3Score: $p3Score
+      p4LinksCount: $p4LinksCount
+    }
+  )
+}
+
+# connector/mutations.gql
+
+query GetUserProfile($id: String!) @auth(level: USER) {
+  userProfile(key: { id: $id }) {
+    id
+    username
+    email
+    role
+  }
+}
+
+mutation UpsertUserProfile(
+  $id: String!
+  $username: String!
+  $email: String!
+  $role: String!
+) @auth(level: USER) {
+  userProfile_upsert(
+    data: { id: $id, username: $username, email: $email, role: $role }
+  )
+}
+
+query ListUserProfiles @auth(level: USER) {
+  userProfiles {
+    id
+    username
+    email
+    role
+  }
+}
+
+mutation DeleteUserProfile($id: String!) @auth(level: USER) {
+  userProfile_delete(key: { id: $id })
+}

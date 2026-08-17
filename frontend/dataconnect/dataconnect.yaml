@@ -1,0 +1,18 @@
+specVersion: "v1"
+serviceId: "studio"
+location: "asia-southeast1"
+schemas:
+  - source: "./schema"
+    datasource:
+      postgresql:
+        database: "fdcdb"
+        cloudSql:
+          instanceId: "studio-fdc"
+
+# CHANGE THIS LINE: Point it exactly to the new src folder
+connectorDirs: ["./src"]
+
+generate:
+  javascriptSdk:
+    outputDir: "../src/generated/dataconnect"
+    package: "@studio/dataconnect"

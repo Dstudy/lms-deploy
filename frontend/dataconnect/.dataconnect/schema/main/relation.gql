@@ -1,0 +1,213 @@
+extend type UserProfile {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "UserProfile", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `UserProfile` table.
+  """
+  _count: Int! @fdc_generated(from: "UserProfile.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProfile` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProfile.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProfile` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProfile.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProfile` table where the `role` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  role_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProfile.role", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProfile` table where the `username` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  username_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProfile.username", purpose: QUERY_COUNT)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "UserProfile.id", purpose: ENTITY_ID)
+}
+extend type UserProgress {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "UserProgress", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `UserProgress` table.
+  """
+  _count: Int! @fdc_generated(from: "UserProgress.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProgress` table where the `learnIndex` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  learnIndex_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress.learnIndex", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProgress` table where the `lessonId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  lessonId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress.lessonId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProgress` table where the `p2Stars` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  p2Stars_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress.p2Stars", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProgress` table where the `p3Score` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  p3Score_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress.p3Score", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProgress` table where the `p4LinksCount` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  p4LinksCount_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress.p4LinksCount", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProgress` table where the `updatedAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  updatedAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress.updatedAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `UserProgress` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `learnIndex` field in the `UserProgress` table.
+  """
+  learnIndex_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "UserProgress.learnIndex", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `p3Score` field in the `UserProgress` table.
+  """
+  p3Score_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "UserProgress.p3Score", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `p4LinksCount` field in the `UserProgress` table.
+  """
+  p4LinksCount_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "UserProgress.p4LinksCount", purpose: QUERY_SUM)
+  """
+  ✨ Average the `learnIndex` field in the `UserProgress` table.
+  """
+  learnIndex_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "UserProgress.learnIndex", purpose: QUERY_AVG)
+  """
+  ✨ Average the `p3Score` field in the `UserProgress` table.
+  """
+  p3Score_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "UserProgress.p3Score", purpose: QUERY_AVG)
+  """
+  ✨ Average the `p4LinksCount` field in the `UserProgress` table.
+  """
+  p4LinksCount_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "UserProgress.p4LinksCount", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `learnIndex` field in the `UserProgress` table.
+  """
+  learnIndex_min: Int @fdc_generated(from: "UserProgress.learnIndex", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `p3Score` field in the `UserProgress` table.
+  """
+  p3Score_min: Int @fdc_generated(from: "UserProgress.p3Score", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `p4LinksCount` field in the `UserProgress` table.
+  """
+  p4LinksCount_min: Int @fdc_generated(from: "UserProgress.p4LinksCount", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `updatedAt` field in the `UserProgress` table.
+  """
+  updatedAt_min: Timestamp @fdc_generated(from: "UserProgress.updatedAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `learnIndex` field in the `UserProgress` table.
+  """
+  learnIndex_max: Int @fdc_generated(from: "UserProgress.learnIndex", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `p3Score` field in the `UserProgress` table.
+  """
+  p3Score_max: Int @fdc_generated(from: "UserProgress.p3Score", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `p4LinksCount` field in the `UserProgress` table.
+  """
+  p4LinksCount_max: Int @fdc_generated(from: "UserProgress.p4LinksCount", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `updatedAt` field in the `UserProgress` table.
+  """
+  updatedAt_max: Timestamp @fdc_generated(from: "UserProgress.updatedAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "UserProgress.userId,lessonId", purpose: ENTITY_ID)
+}

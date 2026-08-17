@@ -1,0 +1,108 @@
+extend type Query {
+  """
+  ✨ Look up a single `UserProfile` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  userProfile(
+    """
+    The unique ID of the object.
+    """
+    id: String
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: String_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: UserProfile_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserProfile_FirstRow
+  ): UserProfile @fdc_generated(from: "UserProfile", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `UserProgress` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  userProgress(
+    """
+    The key used to identify the object.
+    """
+    key: UserProgress_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserProgress_FirstRow
+  ): UserProgress @fdc_generated(from: "UserProgress", purpose: QUERY_SINGLE)
+  """
+  ✨ List `UserProfile` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  userProfiles(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: UserProfile_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [UserProfile_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: UserProfile_Having
+  ): [UserProfile!]! @fdc_generated(from: "UserProfile", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `UserProgress` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  userProgresses(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: UserProgress_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [UserProgress_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: UserProgress_Having
+  ): [UserProgress!]! @fdc_generated(from: "UserProgress", purpose: QUERY_MULTIPLE)
+}

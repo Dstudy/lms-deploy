@@ -1,0 +1,606 @@
+"""
+✨ `UserProfile_KeyOutput` returns the primary key fields of table type `UserProfile`.
+
+It has the same format as `UserProfile_Key`, but is only used as mutation return value.
+"""
+scalar UserProfile_KeyOutput
+"""
+✨ `UserProgress_KeyOutput` returns the primary key fields of table type `UserProgress`.
+
+It has the same format as `UserProgress_Key`, but is only used as mutation return value.
+"""
+scalar UserProgress_KeyOutput
+"""
+✨ Generated data input type for table 'UserProfile'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input UserProfile_Data {
+  """
+  ✨ Generated from Field `UserProfile`.`id` of type `String!`
+  """
+  id: String
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserProfile`.`id` of type `String!`)
+  """
+  id_expr: String_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProfile`.`email` of type `String!`
+  """
+  email: String
+  """
+  ✨ `_expr` server value variant of `email` (✨ Generated from Field `UserProfile`.`email` of type `String!`)
+  """
+  email_expr: String_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProfile`.`role` of type `String!`
+  """
+  role: String
+  """
+  ✨ `_expr` server value variant of `role` (✨ Generated from Field `UserProfile`.`role` of type `String!`)
+  """
+  role_expr: String_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProfile`.`username` of type `String!`
+  """
+  username: String
+  """
+  ✨ `_expr` server value variant of `username` (✨ Generated from Field `UserProfile`.`username` of type `String!`)
+  """
+  username_expr: String_Expr @fdc_forbiddenInVariables
+}
+"""
+✨ Generated filter input type for table 'UserProfile'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserProfile_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [UserProfile_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: UserProfile_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [UserProfile_Filter!]
+  """
+  ✨ Generated from Field `UserProfile`.`id` of type `String!`
+  """
+  id: String_Filter
+  """
+  ✨ Generated from Field `UserProfile`.`email` of type `String!`
+  """
+  email: String_Filter
+  """
+  ✨ Generated from Field `UserProfile`.`role` of type `String!`
+  """
+  role: String_Filter
+  """
+  ✨ Generated from Field `UserProfile`.`username` of type `String!`
+  """
+  username: String_Filter
+}
+"""
+✨ Generated first-row input type for table 'UserProfile'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input UserProfile_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [UserProfile_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: UserProfile_Filter
+}
+"""
+✨ Generated having input type for table 'UserProfile'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserProfile_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [UserProfile_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: UserProfile_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [UserProfile_Having!]
+  """
+  ✨ Generated from Field `UserProfile`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `UserProfile`.`email_count` of type `Int!`
+  """
+  email_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProfile`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProfile`.`role_count` of type `Int!`
+  """
+  role_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProfile`.`username_count` of type `Int!`
+  """
+  username_count: Int_Filter
+}
+"""
+✨ Generated key input type for table 'UserProfile'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input UserProfile_Key {
+  """
+  ✨ Generated from Field `UserProfile`.`id` of type `String!`
+  """
+  id: String
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `UserProfile`.`id` of type `String!`)
+  """
+  id_expr: String_Expr @fdc_forbiddenInVariables
+}
+"""
+✨ Generated list filter input type for table 'UserProfile'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input UserProfile_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: UserProfile_Filter
+}
+"""
+✨ Generated order input type for table 'UserProfile'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input UserProfile_Order {
+  """
+  ✨ Generated from Field `UserProfile`.`id` of type `String!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`email` of type `String!`
+  """
+  email: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`role` of type `String!`
+  """
+  role: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`username` of type `String!`
+  """
+  username: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`email_count` of type `Int!`
+  """
+  email_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`role_count` of type `Int!`
+  """
+  role_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProfile`.`username_count` of type `Int!`
+  """
+  username_count: OrderDirection
+}
+"""
+✨ Generated data input type for table 'UserProgress'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input UserProgress_Data {
+  """
+  ✨ Generated from Field `UserProgress`.`userId` of type `String!`
+  """
+  userId: String
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `UserProgress`.`userId` of type `String!`)
+  """
+  userId_expr: String_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProgress`.`lessonId` of type `String!`
+  """
+  lessonId: String
+  """
+  ✨ `_expr` server value variant of `lessonId` (✨ Generated from Field `UserProgress`.`lessonId` of type `String!`)
+  """
+  lessonId_expr: String_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex` of type `Int!`
+  """
+  learnIndex: Int
+  """
+  ✨ `_expr` server value variant of `learnIndex` (✨ Generated from Field `UserProgress`.`learnIndex` of type `Int!`)
+  """
+  learnIndex_expr: Int_Expr @fdc_forbiddenInVariables
+  """
+  ✨ `_update` server value variant of `learnIndex` (✨ Generated from Field `UserProgress`.`learnIndex` of type `Int!`)
+  """
+  learnIndex_update: [Int_Update!] @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProgress`.`p2Stars` of type `String!`
+  """
+  p2Stars: String
+  """
+  ✨ `_expr` server value variant of `p2Stars` (✨ Generated from Field `UserProgress`.`p2Stars` of type `String!`)
+  """
+  p2Stars_expr: String_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score` of type `Int`
+  """
+  p3Score: Int
+  """
+  ✨ `_expr` server value variant of `p3Score` (✨ Generated from Field `UserProgress`.`p3Score` of type `Int`)
+  """
+  p3Score_expr: Int_Expr @fdc_forbiddenInVariables
+  """
+  ✨ `_update` server value variant of `p3Score` (✨ Generated from Field `UserProgress`.`p3Score` of type `Int`)
+  """
+  p3Score_update: [Int_Update!] @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount` of type `Int!`
+  """
+  p4LinksCount: Int
+  """
+  ✨ `_expr` server value variant of `p4LinksCount` (✨ Generated from Field `UserProgress`.`p4LinksCount` of type `Int!`)
+  """
+  p4LinksCount_expr: Int_Expr @fdc_forbiddenInVariables
+  """
+  ✨ `_update` server value variant of `p4LinksCount` (✨ Generated from Field `UserProgress`.`p4LinksCount` of type `Int!`)
+  """
+  p4LinksCount_update: [Int_Update!] @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt` of type `Timestamp!`
+  """
+  updatedAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `updatedAt` (✨ Generated from Field `UserProgress`.`updatedAt` of type `Timestamp!`)
+  """
+  updatedAt_expr: Timestamp_Expr @fdc_forbiddenInVariables
+  """
+  ✨ `_time` server value variant of `updatedAt` (✨ Generated from Field `UserProgress`.`updatedAt` of type `Timestamp!`)
+  """
+  updatedAt_time: Timestamp_Relative @fdc_forbiddenInVariables
+  """
+  ✨ `_update` server value variant of `updatedAt` (✨ Generated from Field `UserProgress`.`updatedAt` of type `Timestamp!`)
+  """
+  updatedAt_update: [Timestamp_Update!] @fdc_forbiddenInVariables
+}
+"""
+✨ Generated filter input type for table 'UserProgress'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserProgress_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [UserProgress_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: UserProgress_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [UserProgress_Filter!]
+  """
+  ✨ Generated from Field `UserProgress`.`userId` of type `String!`
+  """
+  userId: String_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`lessonId` of type `String!`
+  """
+  lessonId: String_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex` of type `Int!`
+  """
+  learnIndex: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p2Stars` of type `String!`
+  """
+  p2Stars: String_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score` of type `Int`
+  """
+  p3Score: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount` of type `Int!`
+  """
+  p4LinksCount: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt` of type `Timestamp!`
+  """
+  updatedAt: Timestamp_Filter
+}
+"""
+✨ Generated first-row input type for table 'UserProgress'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input UserProgress_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [UserProgress_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: UserProgress_Filter
+}
+"""
+✨ Generated having input type for table 'UserProgress'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input UserProgress_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [UserProgress_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: UserProgress_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [UserProgress_Having!]
+  """
+  ✨ Generated from Field `UserProgress`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_count` of type `Int!`
+  """
+  learnIndex_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`lessonId_count` of type `Int!`
+  """
+  lessonId_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p2Stars_count` of type `Int!`
+  """
+  p2Stars_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_count` of type `Int!`
+  """
+  p3Score_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_count` of type `Int!`
+  """
+  p4LinksCount_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt_count` of type `Int!`
+  """
+  updatedAt_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_sum` of type `Int`
+  """
+  learnIndex_sum: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_sum` of type `Int`
+  """
+  p3Score_sum: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_sum` of type `Int`
+  """
+  p4LinksCount_sum: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_avg` of type `Float`
+  """
+  learnIndex_avg: Float_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_avg` of type `Float`
+  """
+  p3Score_avg: Float_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_avg` of type `Float`
+  """
+  p4LinksCount_avg: Float_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_min` of type `Int`
+  """
+  learnIndex_min: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_min` of type `Int`
+  """
+  p3Score_min: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_min` of type `Int`
+  """
+  p4LinksCount_min: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt_min` of type `Timestamp`
+  """
+  updatedAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_max` of type `Int`
+  """
+  learnIndex_max: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_max` of type `Int`
+  """
+  p3Score_max: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_max` of type `Int`
+  """
+  p4LinksCount_max: Int_Filter
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt_max` of type `Timestamp`
+  """
+  updatedAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'UserProgress'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input UserProgress_Key {
+  """
+  ✨ Generated from Field `UserProgress`.`userId` of type `String!`
+  """
+  userId: String
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `UserProgress`.`userId` of type `String!`)
+  """
+  userId_expr: String_Expr @fdc_forbiddenInVariables
+  """
+  ✨ Generated from Field `UserProgress`.`lessonId` of type `String!`
+  """
+  lessonId: String
+  """
+  ✨ `_expr` server value variant of `lessonId` (✨ Generated from Field `UserProgress`.`lessonId` of type `String!`)
+  """
+  lessonId_expr: String_Expr @fdc_forbiddenInVariables
+}
+"""
+✨ Generated list filter input type for table 'UserProgress'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input UserProgress_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: UserProgress_Filter
+}
+"""
+✨ Generated order input type for table 'UserProgress'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input UserProgress_Order {
+  """
+  ✨ Generated from Field `UserProgress`.`userId` of type `String!`
+  """
+  userId: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`lessonId` of type `String!`
+  """
+  lessonId: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex` of type `Int!`
+  """
+  learnIndex: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p2Stars` of type `String!`
+  """
+  p2Stars: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score` of type `Int`
+  """
+  p3Score: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount` of type `Int!`
+  """
+  p4LinksCount: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt` of type `Timestamp!`
+  """
+  updatedAt: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_count` of type `Int!`
+  """
+  learnIndex_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`lessonId_count` of type `Int!`
+  """
+  lessonId_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p2Stars_count` of type `Int!`
+  """
+  p2Stars_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_count` of type `Int!`
+  """
+  p3Score_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_count` of type `Int!`
+  """
+  p4LinksCount_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt_count` of type `Int!`
+  """
+  updatedAt_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`userId_count` of type `Int!`
+  """
+  userId_count: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_sum` of type `Int`
+  """
+  learnIndex_sum: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_sum` of type `Int`
+  """
+  p3Score_sum: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_sum` of type `Int`
+  """
+  p4LinksCount_sum: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_avg` of type `Float`
+  """
+  learnIndex_avg: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_avg` of type `Float`
+  """
+  p3Score_avg: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_avg` of type `Float`
+  """
+  p4LinksCount_avg: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_min` of type `Int`
+  """
+  learnIndex_min: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_min` of type `Int`
+  """
+  p3Score_min: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_min` of type `Int`
+  """
+  p4LinksCount_min: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt_min` of type `Timestamp`
+  """
+  updatedAt_min: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`learnIndex_max` of type `Int`
+  """
+  learnIndex_max: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p3Score_max` of type `Int`
+  """
+  p3Score_max: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`p4LinksCount_max` of type `Int`
+  """
+  p4LinksCount_max: OrderDirection
+  """
+  ✨ Generated from Field `UserProgress`.`updatedAt_max` of type `Timestamp`
+  """
+  updatedAt_max: OrderDirection
+}

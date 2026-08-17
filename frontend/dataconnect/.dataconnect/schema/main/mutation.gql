@@ -1,0 +1,226 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `UserProfile` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userProfile_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: UserProfile_Data!
+  ): UserProfile_KeyOutput! @fdc_generated(from: "UserProfile", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `UserProgress` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userProgress_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: UserProgress_Data!
+  ): UserProgress_KeyOutput! @fdc_generated(from: "UserProgress", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `UserProfile` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userProfile_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [UserProfile_Data!]!
+  ): [UserProfile_KeyOutput!]! @fdc_generated(from: "UserProfile", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `UserProgress` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  userProgress_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [UserProgress_Data!]!
+  ): [UserProgress_KeyOutput!]! @fdc_generated(from: "UserProgress", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `UserProfile` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserProfile`.
+  """
+  userProfile_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: UserProfile_Data!
+  ): UserProfile_KeyOutput! @fdc_generated(from: "UserProfile", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `UserProgress` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserProgress`.
+  """
+  userProgress_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: UserProgress_Data!
+  ): UserProgress_KeyOutput! @fdc_generated(from: "UserProgress", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `UserProfile` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserProfile`.
+  """
+  userProfile_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [UserProfile_Data!]!
+  ): [UserProfile_KeyOutput!]! @fdc_generated(from: "UserProfile", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `UserProgress` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `UserProgress`.
+  """
+  userProgress_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [UserProgress_Data!]!
+  ): [UserProgress_KeyOutput!]! @fdc_generated(from: "UserProgress", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `UserProfile` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `UserProfile` or `null` if not found.
+  """
+  userProfile_update(
+    """
+    The unique ID of the object.
+    """
+    id: String
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: String_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: UserProfile_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserProfile_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: UserProfile_Data!
+  ): UserProfile_KeyOutput @fdc_generated(from: "UserProfile", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `UserProgress` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `UserProgress` or `null` if not found.
+  """
+  userProgress_update(
+    """
+    The key used to identify the object.
+    """
+    key: UserProgress_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserProgress_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: UserProgress_Data!
+  ): UserProgress_KeyOutput @fdc_generated(from: "UserProgress", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `UserProfile` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  userProfile_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: UserProfile_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: UserProfile_Data!
+  ): Int! @fdc_generated(from: "UserProfile", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `UserProgress` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  userProgress_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: UserProgress_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: UserProgress_Data!
+  ): Int! @fdc_generated(from: "UserProgress", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `UserProfile` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  userProfile_delete(
+    """
+    The unique ID of the object.
+    """
+    id: String
+
+    """
+    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
+    """
+    id_expr: String_Expr
+
+    """
+    The key used to identify the object.
+    """
+    key: UserProfile_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserProfile_FirstRow
+  ): UserProfile_KeyOutput @fdc_generated(from: "UserProfile", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `UserProgress` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  userProgress_delete(
+    """
+    The key used to identify the object.
+    """
+    key: UserProgress_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: UserProgress_FirstRow
+  ): UserProgress_KeyOutput @fdc_generated(from: "UserProgress", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `UserProfile` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  userProfile_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: UserProfile_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "UserProfile", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `UserProgress` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  userProgress_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: UserProgress_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "UserProgress", purpose: DELETE_MULTIPLE)
+}

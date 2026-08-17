@@ -1,0 +1,63 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Soft Mint Green (#B2E0BA) */
+    --primary: 129 39% 79%;
+    --primary-foreground: 129 39% 10%;
+    
+    /* Light Background (#F3F6F4) */
+    --background: 140 10% 96%;
+    --foreground: 140 10% 3%;
+    
+    /* Playful Accent Yellow-Green (#ACE070) */
+    --accent: 87 65% 66%;
+    --accent-foreground: 87 65% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    
+    --secondary: 34 100% 83%; /* Soft Orange for variety */
+    --secondary-foreground: 34 100% 20%;
+    
+    --muted: 140 10% 90%;
+    --muted-foreground: 140 10% 40%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 140 10% 85%;
+    --input: 140 10% 85%;
+    --ring: 129 39% 70%;
+    
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body select-none touch-manipulation;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+/* Custom animations for child-friendly feedback */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite ease-in-out;
+}
