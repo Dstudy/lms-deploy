@@ -41,6 +41,7 @@ import {
   updateApp,
   uploadAppLogo,
   deleteApp,
+  deleteAllAppLessons,
   assignAdminToApp,
   listAppAdmins,
   updateAppAdmin,
@@ -91,6 +92,12 @@ export default function SuperadminPage() {
   const [deletingApp, setDeletingApp] = useState<AppRecord | null>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [deleteError, setDeleteError] = useState("");
+
+  // Delete All Lessons Confirmation
+  const [deleteLessonsOpen, setDeleteLessonsOpen] = useState(false);
+  const [deleteLessonsApp, setDeleteLessonsApp] = useState<AppRecord | null>(null);
+  const [deleteLessonsLoading, setDeleteLessonsLoading] = useState(false);
+  const [deleteLessonsError, setDeleteLessonsError] = useState("");
 
   // Assign Admin Modal
   const [adminOpen, setAdminOpen] = useState(false);
@@ -259,6 +266,25 @@ export default function SuperadminPage() {
       setDeleteError(err.message ?? "Failed to delete app.");
     } finally {
       setDeleteLoading(false);
+    }
+  };
+
+  const handleDeleteAllLessonsConfirm = async () => {
+    if (!deleteLessonsApp) return;
+    setDeleteLessonsError("");
+    setDeleteLessonsLoading(true);
+    try {
+      const res = await deleteAllAppLessons(deleteLessonsApp.id);
+      setDeleteLessonsOpen(false);
+      setDeleteLessonsApp(null);
+      toast({
+        title: "Lessons Cleared",
+        description: `${res.deleted} lesson${res.deleted !== 1 ? "s" : ""} deleted from "${deleteLessonsApp.name}".`,
+      });
+    } catch (err: any) {
+      setDeleteLessonsError(err.message ?? "Failed to delete lessons.");
+    } finally {
+      setDeleteLessonsLoading(false);
     }
   };
 
@@ -728,6 +754,19 @@ export default function SuperadminPage() {
                           Delete
                         </Button>
                       )}
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          setDeleteLessonsApp(app);
+                          setDeleteLessonsError("");
+                          setDeleteLessonsOpen(true);
+                        }}
+                        className="text-slate-500 hover:text-amber-600 h-8 px-2.5 rounded-lg flex items-center gap-1.5"
+                      >
+                        <Layers className="w-4 h-4" />
+                        Clear Lessons
+                      </Button>
                     </div>
                     <a
                       href={`/admin?slug=${app.slug}`}
@@ -1113,6 +1152,48 @@ export default function SuperadminPage() {
             >
               {deleteLoading ? <RefreshCw className="w-4 h-4 animate-spin mr-2" /> : null}
               {deleteLoading ? "Deleting..." : "Permanently Delete Scope"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* ── DELETE ALL LESSONS CONFIRMATION DIALOG ── */}
+      <Dialog open={deleteLessonsOpen} onOpenChange={setDeleteLessonsOpen}>
+        <DialogContent className="rounded-3xl sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-amber-600 flex items-center gap-2">
+              <Layers className="w-5 h-5" />
+              Clear All Lessons
+            </DialogTitle>
+            <DialogDescription>
+              This will permanently delete <strong>all lessons, words, and links</strong> from{" "}
+              <strong>{deleteLessonsApp?.name}</strong>. Student progress records will remain intact.{" "}
+              <strong>This action cannot be undone.</strong>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="py-2">
+            {deleteLessonsError && (
+              <p className="text-sm text-rose-500 font-medium">{deleteLessonsError}</p>
+            )}
+          </div>
+          <DialogFooter className="gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setDeleteLessonsOpen(false)}
+              className="rounded-xl"
+              disabled={deleteLessonsLoading}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="button"
+              onClick={handleDeleteAllLessonsConfirm}
+              disabled={deleteLessonsLoading}
+              className="rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold"
+            >
+              {deleteLessonsLoading ? <RefreshCw className="w-4 h-4 animate-spin mr-2" /> : null}
+              {deleteLessonsLoading ? "Deleting..." : "Delete All Lessons"}
             </Button>
           </DialogFooter>
         </DialogContent>

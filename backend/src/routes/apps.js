@@ -213,6 +213,40 @@ router.post('/:id/logo', requireSuperAdmin, (req, res) => {
   });
 });
 
+// DELETE /api/apps/:id/lessons — delete ALL lessons for an app (superadmin only)
+router.delete('/:id/lessons', requireSuperAdmin, async (req, res) => {
+  const { id: appId } = req.params;
+
+  try {
+    const [appRows] = await pool.execute('SELECT id FROM apps WHERE id = ?', [appId]);
+    if (appRows.length === 0) {
+      return res.status(404).json({ error: 'App not found' });
+    }
+
+    // Fetch all lesson IDs for this app first
+    const [lessonRows] = await pool.execute(
+      'SELECT id FROM lessons WHERE app_id = ?',
+      [appId]
+    );
+    const lessonIds = lessonRows.map((r) => r.id);
+
+    if (lessonIds.length === 0) {
+      return res.json({ message: 'No lessons to delete', deleted: 0 });
+    }
+
+    // Delete words and links first, then lessons
+    const placeholders = lessonIds.map(() => '?').join(', ');
+    await pool.execute(`DELETE FROM lesson_words WHERE lesson_id IN (${placeholders})`, lessonIds);
+    await pool.execute(`DELETE FROM lesson_links WHERE lesson_id IN (${placeholders})`, lessonIds);
+    const [result] = await pool.execute(`DELETE FROM lessons WHERE app_id = ?`, [appId]);
+
+    return res.json({ message: 'All lessons deleted', deleted: result.affectedRows });
+  } catch (err) {
+    console.error('Delete all lessons error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // DELETE /api/apps/:id — delete app (superadmin only)
 router.delete('/:id', requireSuperAdmin, async (req, res) => {
   const { id } = req.params;

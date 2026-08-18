@@ -370,6 +370,10 @@ export async function deleteApp(id: string): Promise<void> {
   await apiFetch<void>(`/api/apps/${id}`, { method: "DELETE" });
 }
 
+export async function deleteAllAppLessons(appId: string): Promise<{ message: string; deleted: number }> {
+  return apiFetch<{ message: string; deleted: number }>(`/api/apps/${appId}/lessons`, { method: "DELETE" });
+}
+
 export async function assignAdminToApp(
   appId: string,
   payload: { email: string; username: string; password: string }
