@@ -1,0 +1,3188 @@
+[
+  {
+    "id": "lesson-1",
+    "title": "Lesson 1",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-1-word-0",
+        "text": "Bear",
+        "image": "https://media.cnn.com/api/v1/images/stellar/prod/211125112643-bart-the-bear-ii.jpg?q=x_2,y_0,h_898,w_1596,c_crop/h_833,w_1480",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-1",
+        "text": "Bird",
+        "image": "https://a-z-animals.com/media/2022/12/iStock-1338537172.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-2",
+        "text": "Pig",
+        "image": "https://i.natgeofe.com/k/23e409f9-4699-46f0-a645-5cc1f5040363/pig-full-body.jpg?wp=1&w=1084.125&h=609",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-3",
+        "text": "Penguin",
+        "image": "https://explore-live.s3.eu-west-1.amazonaws.com/medialibraries/explore/blog-images/2018%2012%20december/shutterstock_1080525158-2.jpg?ext=.jpg&width=620&format=webp&quality=80&v=202103231018",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-4",
+        "text": "Monkey",
+        "image": "https://a-z-animals.com/media/2024/02/GettyImages-1410187446.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-5",
+        "text": "One",
+        "image": "https://illustcute.com/photo/10521.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-6",
+        "text": "Two",
+        "image": "https://img.magnific.com/free-psd/number-illustration-isolated_23-2151463626.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-7",
+        "text": "Three",
+        "image": "https://img.magnific.com/free-psd/number-illustration-isolated_23-2151463628.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-8",
+        "text": "Four",
+        "image": "https://cdn.creativefabrica.com/2023/02/10/Seafood-Icon-Number-Letter-4-Clipart-Graphics-60641999-1.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-1-word-9",
+        "text": "Five",
+        "image": "https://img.magnific.com/free-psd/number-illustration-isolated_23-2151463632.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83827080"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-2",
+    "title": "Lesson 2",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-2-word-0",
+        "text": "Pet",
+        "image": "https://www.uai.com.br/uainoticias/wp-content/uploads/2025/09/pets_1758181904332.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-2-word-1",
+        "text": "Dog",
+        "image": "https://content.lyka.com.au/f/1016262/1104x676/e36872ce32/beagle.png/m/1200x630/smart/filters:format(jpeg)",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-2-word-2",
+        "text": "Cat",
+        "image": "https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-2-word-3",
+        "text": "Mouse",
+        "image": "https://protectthewild.org.uk/wp-content/uploads/2022/11/yellow-necked_mouse_square-768x768.webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-2-word-4",
+        "text": "Bird",
+        "image": "https://a-z-animals.com/media/2022/12/iStock-1338537172.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-2-word-5",
+        "text": "Fish",
+        "image": "https://aquaforest.eu/wp-content/uploads/2025/06/blazenek-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-2-word-6",
+        "text": "Lion",
+        "image": "https://img.magnific.com/free-photo/african-lion-portrait-warm-light_475641-46.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84239651"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-3",
+    "title": "Lesson 3",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-3-word-0",
+        "text": "Red",
+        "image": "https://i.pinimg.com/736x/bb/7d/1d/bb7d1d9e6ad751ab1a7eee88f8ffc2bc.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-3-word-1",
+        "text": "Yellow",
+        "image": "https://cdn.creativefabrica.com/2022/06/09/Colored-yellow-paint-splashes-vector-ill-Graphics-32064010-1.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-3-word-2",
+        "text": "Green",
+        "image": "https://clipart-library.com/2023/273-2735093_paint-zazzle-bahan-pigment-color-clipart-paint-splash.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-3-word-3",
+        "text": "Blue",
+        "image": "https://www.liquitex.com/cdn/shop/files/140844_76b31bb6-ca25-4fe3-ae15-ed69756f9505.jpg?v=1762458316",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-3-word-4",
+        "text": "Apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-3-word-5",
+        "text": "Sun",
+        "image": "https://img.magnific.com/premium-vector/sun-vector-illustration-isolated-white-background_1044048-972.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-3-word-6",
+        "text": "Clover",
+        "image": "https://luuckk.com/cdn/shop/articles/trefle-quatre-feuilles_9e217ee0-c72e-40fd-a6af-0284c6776928.webp?v=1757856438&width=2048",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-3-word-7",
+        "text": "Sky",
+        "image": "https://www.worldatlas.com/r/w1200/upload/56/c5/7c/shutterstock-520792630.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84239832"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-4",
+    "title": "Lesson 4",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-4-word-0",
+        "text": "walking",
+        "image": "https://img.magnific.com/premium-vector/overweight-woman-walking-young-plus-size-girl-character-sportswear-exercising-be-slim-outdoor-fitness-healthy-lifestyle-active-sport-life-weight-loss-cartoon-people-vector-illustration_1016-10760.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-1",
+        "text": "hop",
+        "image": "https://media.baamboozle.com/uploads/images/529752/1639439057_87841.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-2",
+        "text": "run",
+        "image": "https://img.magnific.com/premium-vector/man-running-outdoor-summer-jogging-park-doing-exercise-cardio-workout-outside-vector_497399-33.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-3",
+        "text": "stop",
+        "image": "https://img.magnific.com/premium-vector/vector-illustration-cartoon-boy-holding-stop-sign_43633-3102.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-4",
+        "text": "tiptoe",
+        "image": "https://media.istockphoto.com/id/469138384/vector/boy-following-the-footprints.jpg?s=612x612&w=0&k=20&c=nDgbgmUuHsE-ITZe166CT5yHBIu7Frmt-HBOjq1UX4c=",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-5",
+        "text": "jump",
+        "image": "https://static.vecteezy.com/system/resources/previews/007/846/344/non_2x/cute-little-kid-jump-and-feel-happy-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-6",
+        "text": "swim",
+        "image": "https://swimstars.co/wp-content/uploads/2022/08/natation-adulte-swim-stars.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-7",
+        "text": "sleep",
+        "image": "https://static.vecteezy.com/system/resources/previews/046/467/583/non_2x/cartoon-little-boy-sleeping-in-the-bed-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-8",
+        "text": "wake up",
+        "image": "https://static.vecteezy.com/system/resources/previews/014/831/166/non_2x/cute-kid-waking-up-in-the-morning-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-9",
+        "text": "Stand up",
+        "image": "https://cdn.hinative.com/attached_images/195989/cb6e247542b823a35251dfee6715e7f241bd0cdf/large.jpg?1509426652",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-10",
+        "text": "Sit Down",
+        "image": "https://yourhomework.net/yhw/bfc/images/vocabulary/english/sgk-tieng-anh-3-global-success-unit-7/sit-down.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-4-word-11",
+        "text": "Spin round",
+        "image": "https://media.baamboozle.com/uploads/images/445344/1663237120_16778.gif",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84240029"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-5",
+    "title": "Lesson 5",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-5-word-0",
+        "text": "Shark",
+        "image": "https://cdn.britannica.com/79/65379-050-ED75F4D4/Shortfin-mako-shark-seas.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-5-word-1",
+        "text": "Baby",
+        "image": "https://media.babyartikel.de/magazin/wp-content/uploads/2017/03/baby-2-monate-1050x700.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-5-word-2",
+        "text": "Mommy",
+        "image": "https://st.depositphotos.com/1526816/4306/v/450/depositphotos_43066379-stock-illustration-a-love-of-a-mother.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-5-word-3",
+        "text": "Daddy",
+        "image": "https://www.shutterstock.com/image-vector/father-hold-little-sleeping-child-600nw-2478417747.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-5-word-4",
+        "text": "Grandma",
+        "image": "https://st4.depositphotos.com/8230070/27801/v/450/depositphotos_278015638-stock-illustration-grandmother-waving-hand.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-5-word-5",
+        "text": "Grandpa",
+        "image": "https://clipart-library.com/2024/grandfather-clipart/grandfather-clipart-6.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-5-word-6",
+        "text": "Run",
+        "image": "https://img.magnific.com/premium-vector/man-running-outdoor-summer-jogging-park-doing-exercise-cardio-workout-outside-vector_497399-33.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83831507"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-6",
+    "title": "Lesson 6",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-6-word-0",
+        "text": "Red",
+        "image": "https://i.pinimg.com/736x/bb/7d/1d/bb7d1d9e6ad751ab1a7eee88f8ffc2bc.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-6-word-1",
+        "text": "Yellow",
+        "image": "https://cdn.creativefabrica.com/2022/06/09/Colored-yellow-paint-splashes-vector-ill-Graphics-32064010-1.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-6-word-2",
+        "text": "Green",
+        "image": "https://clipart-library.com/2023/273-2735093_paint-zazzle-bahan-pigment-color-clipart-paint-splash.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-6-word-3",
+        "text": "Blue",
+        "image": "https://www.liquitex.com/cdn/shop/files/140844_76b31bb6-ca25-4fe3-ae15-ed69756f9505.jpg?v=1762458316",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-6-word-4",
+        "text": "Apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-6-word-5",
+        "text": "Sun",
+        "image": "https://img.magnific.com/premium-vector/sun-vector-illustration-isolated-white-background_1044048-972.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-6-word-6",
+        "text": "Clover",
+        "image": "https://luuckk.com/cdn/shop/articles/trefle-quatre-feuilles_9e217ee0-c72e-40fd-a6af-0284c6776928.webp?v=1757856438&width=2048",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-6-word-7",
+        "text": "Sky",
+        "image": "https://www.worldatlas.com/r/w1200/upload/56/c5/7c/shutterstock-520792630.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/113881075"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-7",
+    "title": "Lesson 7",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-7-word-0",
+        "text": "walking",
+        "image": "https://img.magnific.com/premium-vector/overweight-woman-walking-young-plus-size-girl-character-sportswear-exercising-be-slim-outdoor-fitness-healthy-lifestyle-active-sport-life-weight-loss-cartoon-people-vector-illustration_1016-10760.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-1",
+        "text": "hop",
+        "image": "https://media.baamboozle.com/uploads/images/529752/1639439057_87841.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-2",
+        "text": "run",
+        "image": "https://img.magnific.com/premium-vector/man-running-outdoor-summer-jogging-park-doing-exercise-cardio-workout-outside-vector_497399-33.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-3",
+        "text": "stop",
+        "image": "https://img.magnific.com/premium-vector/vector-illustration-cartoon-boy-holding-stop-sign_43633-3102.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-4",
+        "text": "tiptoe",
+        "image": "https://media.istockphoto.com/id/469138384/vector/boy-following-the-footprints.jpg?s=612x612&w=0&k=20&c=nDgbgmUuHsE-ITZe166CT5yHBIu7Frmt-HBOjq1UX4c=",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-5",
+        "text": "jump",
+        "image": "https://static.vecteezy.com/system/resources/previews/007/846/344/non_2x/cute-little-kid-jump-and-feel-happy-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-6",
+        "text": "swim",
+        "image": "https://swimstars.co/wp-content/uploads/2022/08/natation-adulte-swim-stars.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-7",
+        "text": "sleep",
+        "image": "https://static.vecteezy.com/system/resources/previews/046/467/583/non_2x/cartoon-little-boy-sleeping-in-the-bed-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-8",
+        "text": "wake up",
+        "image": "https://static.vecteezy.com/system/resources/previews/014/831/166/non_2x/cute-kid-waking-up-in-the-morning-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-9",
+        "text": "Stand up",
+        "image": "https://cdn.hinative.com/attached_images/195989/cb6e247542b823a35251dfee6715e7f241bd0cdf/large.jpg?1509426652",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-10",
+        "text": "Sit Down",
+        "image": "https://yourhomework.net/yhw/bfc/images/vocabulary/english/sgk-tieng-anh-3-global-success-unit-7/sit-down.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-7-word-11",
+        "text": "Spin round",
+        "image": "https://media.baamboozle.com/uploads/images/445344/1663237120_16778.gif",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83842029"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-8",
+    "title": "Lesson 8",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-8-word-0",
+        "text": "Pet",
+        "image": "https://www.uai.com.br/uainoticias/wp-content/uploads/2025/09/pets_1758181904332.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-1",
+        "text": "Dog",
+        "image": "https://content.lyka.com.au/f/1016262/1104x676/e36872ce32/beagle.png/m/1200x630/smart/filters:format(jpeg)",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-2",
+        "text": "Cat",
+        "image": "https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-3",
+        "text": "Mouse",
+        "image": "https://protectthewild.org.uk/wp-content/uploads/2022/11/yellow-necked_mouse_square-768x768.webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-4",
+        "text": "Bird",
+        "image": "https://a-z-animals.com/media/2022/12/iStock-1338537172.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-5",
+        "text": "Fish",
+        "image": "https://aquaforest.eu/wp-content/uploads/2025/06/blazenek-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-6",
+        "text": "Lion",
+        "image": "https://img.magnific.com/free-photo/african-lion-portrait-warm-light_475641-46.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-7",
+        "text": "Bear",
+        "image": "https://media.cnn.com/api/v1/images/stellar/prod/211125112643-bart-the-bear-ii.jpg?q=x_2,y_0,h_898,w_1596,c_crop/h_833,w_1480",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-8",
+        "text": "Monkey",
+        "image": "https://a-z-animals.com/media/2024/02/GettyImages-1410187446.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-9",
+        "text": "Bird",
+        "image": "https://a-z-animals.com/media/2022/12/iStock-1338537172.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-10",
+        "text": "Pig",
+        "image": "https://i.natgeofe.com/k/23e409f9-4699-46f0-a645-5cc1f5040363/pig-full-body.jpg?wp=1&w=1084.125&h=609",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-11",
+        "text": "Penguin",
+        "image": "https://explore-live.s3.eu-west-1.amazonaws.com/medialibraries/explore/blog-images/2018%2012%20december/shutterstock_1080525158-2.jpg?ext=.jpg&width=620&format=webp&quality=80&v=202103231018",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-8-word-12",
+        "text": "Shark",
+        "image": "https://cdn.britannica.com/79/65379-050-ED75F4D4/Shortfin-mako-shark-seas.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83842356"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-9",
+    "title": "Lesson 9",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-9-word-0",
+        "text": "tiptoe",
+        "image": "https://media.istockphoto.com/id/469138384/vector/boy-following-the-footprints.jpg?s=612x612&w=0&k=20&c=nDgbgmUuHsE-ITZe166CT5yHBIu7Frmt-HBOjq1UX4c=",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-9-word-1",
+        "text": "jump",
+        "image": "https://static.vecteezy.com/system/resources/previews/007/846/344/non_2x/cute-little-kid-jump-and-feel-happy-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-9-word-2",
+        "text": "swim",
+        "image": "https://swimstars.co/wp-content/uploads/2022/08/natation-adulte-swim-stars.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-9-word-3",
+        "text": "sleep",
+        "image": "https://static.vecteezy.com/system/resources/previews/046/467/583/non_2x/cartoon-little-boy-sleeping-in-the-bed-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-9-word-4",
+        "text": "Red",
+        "image": "https://i.pinimg.com/736x/bb/7d/1d/bb7d1d9e6ad751ab1a7eee88f8ffc2bc.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-9-word-5",
+        "text": "Yellow",
+        "image": "https://cdn.creativefabrica.com/2022/06/09/Colored-yellow-paint-splashes-vector-ill-Graphics-32064010-1.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-9-word-6",
+        "text": "Green",
+        "image": "https://clipart-library.com/2023/273-2735093_paint-zazzle-bahan-pigment-color-clipart-paint-splash.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-9-word-7",
+        "text": "Blue",
+        "image": "https://www.liquitex.com/cdn/shop/files/140844_76b31bb6-ca25-4fe3-ae15-ed69756f9505.jpg?v=1762458316",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83845333"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-10",
+    "title": "Lesson 10",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-10-word-0",
+        "text": "Penguin",
+        "image": "https://explore-live.s3.eu-west-1.amazonaws.com/medialibraries/explore/blog-images/2018%2012%20december/shutterstock_1080525158-2.jpg?ext=.jpg&width=620&format=webp&quality=80&v=202103231018",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-10-word-1",
+        "text": "Mouse",
+        "image": "https://protectthewild.org.uk/wp-content/uploads/2022/11/yellow-necked_mouse_square-768x768.webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-10-word-2",
+        "text": "Shark",
+        "image": "https://cdn.britannica.com/79/65379-050-ED75F4D4/Shortfin-mako-shark-seas.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-10-word-3",
+        "text": "wake up",
+        "image": "https://static.vecteezy.com/system/resources/previews/014/831/166/non_2x/cute-kid-waking-up-in-the-morning-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-10-word-4",
+        "text": "Stand up",
+        "image": "https://cdn.hinative.com/attached_images/195989/cb6e247542b823a35251dfee6715e7f241bd0cdf/large.jpg?1509426652",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-10-word-5",
+        "text": "Sit Down",
+        "image": "https://yourhomework.net/yhw/bfc/images/vocabulary/english/sgk-tieng-anh-3-global-success-unit-7/sit-down.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-10-word-6",
+        "text": "Spin round",
+        "image": "https://media.baamboozle.com/uploads/images/445344/1663237120_16778.gif",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83845582"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-11",
+    "title": "Lesson 11",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-11-word-0",
+        "text": "Here you are",
+        "image": "https://media.baamboozle.com/uploads/images/602636/1666696326_31347.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-11-word-1",
+        "text": "thank you",
+        "image": "https://alokiddy.com.vn/Uploads/files/CAM_APP/S1/03/Images/phatam/Task_1/C1.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-11-word-2",
+        "text": "your're welcome",
+        "image": "https://alokiddy.com.vn/Uploads/files/CAM_APP/S1/03/Images/phatam/Task_1/C4.png",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112793347"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-12",
+    "title": "Lesson 12",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-12-word-0",
+        "text": "finger",
+        "image": "https://img.magnific.com/premium-photo/photo-man-hand-isolated-white-background_175994-262247.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-12-word-1",
+        "text": "hand",
+        "image": "https://cdn.mos.cms.futurecdn.net/mhJ2yWNwMtNcmijZqVEDDW-440-80.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-12-word-2",
+        "text": "eyes",
+        "image": "https://www.lens.com/eyestyle/wp-content/uploads/brown_eyes_facts.webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-12-word-3",
+        "text": "nose",
+        "image": "https://static.vecteezy.com/system/resources/previews/024/730/438/non_2x/human-nose-isolated-on-white-background-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-12-word-4",
+        "text": "face",
+        "image": "https://www.facebeautyscience.com/wp-content/uploads/2022/11/face-beauty-skin-face2-proc-1.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112793878"
+      },
+      {
+        "text": "Nghe chỉ sách và xem video level Little K 15 - 30 phút",
+        "url": "https://drive.google.com/drive/u/0/folders/1P9hFDx7bZ3-SqMwlTs1lDEZjBcwnFnSX"
+      }
+    ]
+  },
+  {
+    "id": "lesson-13",
+    "title": "Lesson 13",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-13-word-0",
+        "text": "head",
+        "image": "https://thumbs.dreamstime.com/b/boy-happy-surprised-cute-little-expression-hands-head-big-smile-40395377.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-13-word-1",
+        "text": "shoulder",
+        "image": "https://media.baamboozle.com/uploads/images/58796/1631212623_47955.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-13-word-2",
+        "text": "knees",
+        "image": "https://yourhomework.net/yhw/f/yhw-voca/2023/05/202305090042138337983.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-13-word-3",
+        "text": "toes",
+        "image": "https://media.istockphoto.com/id/1338463698/nl/vector/simple-colored-vector-illustration-top-view-of-two-feet-toes-nails-pedicure.jpg?s=612x612&w=0&k=20&c=Dub99dBkFZp4ZtRr25EEfufqEIZTsGb1cgtc872bDt0=",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-13-word-4",
+        "text": "eye",
+        "image": "https://www.lasikvisioninstitute.com/wp-content/uploads/2025/05/2149457573-1400x933.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-13-word-5",
+        "text": "ear",
+        "image": "https://img.magnific.com/free-vector/realistic-vector-icon-illustration-human-ear-isolated-white-background_134830-2293.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-13-word-6",
+        "text": "mouth",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/058/369/370/small/smiling-mouth-with-white-teeth-and-red-lips-close-up-cartoon-illustration-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-13-word-7",
+        "text": "nose",
+        "image": "https://static.vecteezy.com/system/resources/previews/024/730/438/non_2x/human-nose-isolated-on-white-background-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83842954"
+      },
+      {
+        "text": "Handout 1- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-14",
+    "title": "Lesson 14",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-14-word-0",
+        "text": "Open",
+        "image": "https://t4.ftcdn.net/jpg/01/51/54/43/360_F_151544328_AZ672761YjvhpEZaV46pdBwCg2usEvNE.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-14-word-1",
+        "text": "shut",
+        "image": "https://img.magnific.com/premium-vector/raised-up-clenched-male-fist-icon-cartoon-illustration-raised-up-clenched-male-fist-vector-icon-web_96318-26558.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-14-word-2",
+        "text": "clap",
+        "image": "https://i.pinimg.com/736x/98/06/9d/98069d9077c9899fb89c4599a2e99bc2.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-14-word-3",
+        "text": "lap",
+        "image": "https://media.baamboozle.com/uploads/images/408991/1637220951_55885.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-14-word-4",
+        "text": "big- small",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-words-with-big-small_1308-53856.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-14-word-5",
+        "text": "fast- slow",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-fast-slow_1308-2858.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-14-word-6",
+        "text": "loud- quiet",
+        "image": "https://cdn.vectorstock.com/i/500p/56/39/example-opposite-adjectives-word-for-kids-vector-38285639.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83844760"
+      },
+      {
+        "text": "Handout 2- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-15",
+    "title": "Lesson 15",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-15-word-0",
+        "text": "pink",
+        "image": "https://i.pinimg.com/736x/59/26/39/59263902fd58c988fc599ac900f1a097.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-1",
+        "text": "purple",
+        "image": "https://clipart-library.com/2023/9T4oRzxqc.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-2",
+        "text": "orange",
+        "image": "https://www.kindpng.com/picc/m/302-3029161_transparent-orange-clipart-orange-paint-splatter-clipart-hd.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-3",
+        "text": "brown",
+        "image": "https://www.pngitem.com/pimgs/m/43-434375_ink-splash-with-drops-brown-clip-art-at.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-4",
+        "text": "Red",
+        "image": "https://i.pinimg.com/736x/bb/7d/1d/bb7d1d9e6ad751ab1a7eee88f8ffc2bc.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-5",
+        "text": "Yellow",
+        "image": "https://cdn.creativefabrica.com/2022/06/09/Colored-yellow-paint-splashes-vector-ill-Graphics-32064010-1.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-6",
+        "text": "Green",
+        "image": "https://clipart-library.com/2023/273-2735093_paint-zazzle-bahan-pigment-color-clipart-paint-splash.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-7",
+        "text": "Blue",
+        "image": "https://www.liquitex.com/cdn/shop/files/140844_76b31bb6-ca25-4fe3-ae15-ed69756f9505.jpg?v=1762458316",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-8",
+        "text": "cotton candy",
+        "image": "https://thumbs.dreamstime.com/b/cotton-candy-14296847.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-9",
+        "text": "grape",
+        "image": "https://img.magnific.com/premium-vector/grape-flat-vector-illustration-white-background_674398-556.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-10",
+        "text": "pumpkin",
+        "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/pumpkin-3f3d894.jpg?quality=90&resize=700,636",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-15-word-11",
+        "text": "chocolate cake",
+        "image": "https://static.vecteezy.com/system/resources/previews/014/167/748/non_2x/cocoa-chocolate-cake-icon-cartoon-party-food-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83846707"
+      },
+      {
+        "text": "Handout 3- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-16",
+    "title": "Lesson 16",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-16-word-0",
+        "text": "boy",
+        "image": "https://static.vecteezy.com/system/resources/previews/015/840/578/non_2x/cartoon-cute-boy-waving-hand-free-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-16-word-1",
+        "text": "toys",
+        "image": "https://www.yorwaste.co.uk/wp-content/uploads/2024/08/shutterstock_436617280-scaled-optimised.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-16-word-2",
+        "text": "play",
+        "image": "https://static.vecteezy.com/system/resources/previews/010/640/475/non_2x/cute-little-boy-playing-with-his-toys-illustration-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83847450"
+      },
+      {
+        "text": "Handout 4- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-17",
+    "title": "Lesson 17",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-17-word-0",
+        "text": "Girl",
+        "image": "https://static.vecteezy.com/system/resources/previews/010/067/859/non_2x/cartoon-little-school-girl-waving-hand-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-17-word-1",
+        "text": "doll",
+        "image": "https://img.magnific.com/premium-vector/doll-cute-children-s-toy-with-red-hair-doll-beautiful-dress-vector-illustration-isolated-white-background_538993-337.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-17-word-2",
+        "text": "play",
+        "image": "https://static.vecteezy.com/system/resources/previews/020/946/176/non_2x/girls-play-with-dolls-free-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "Quay video đọc bài thơ \"I am a boy\" và \"I'm a girl\"",
+        "url": ""
+      },
+      {
+        "text": "Handout 5- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-18",
+    "title": "Lesson 18",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-18-word-0",
+        "text": "in- out",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-with-out_1308-53924.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-18-word-1",
+        "text": "right- left",
+        "image": "https://i.ytimg.com/vi/mq4O6EzBqog/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAU83fTre4IU3Bc_GbkP7hbi-EBrA",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-18-word-2",
+        "text": "arms",
+        "image": "https://media.baamboozle.com/uploads/images/58886/1590720750_55922",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-18-word-3",
+        "text": "legs",
+        "image": "https://us.123rf.com/450wm/creativejenn/creativejenn1803/creativejenn180300007/97613603-female-legs-barefoot-side-view-vector-illustration-hand-drawn-cartoon-style-isolated-on-white.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-18-word-4",
+        "text": "chin",
+        "image": "https://static.vecteezy.com/system/resources/previews/047/553/093/non_2x/cartoon-illustration-of-a-boy-thinking-with-a-finger-on-his-chin-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-18-word-5",
+        "text": "turn around",
+        "image": "https://media.baamboozle.com/uploads/images/113812/1610483218_59035",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-18-word-6",
+        "text": "sit down",
+        "image": "https://yourhomework.net/yhw/bfc/images/vocabulary/english/sgk-tieng-anh-3-global-success-unit-7/sit-down.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83953799"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83955201"
+      }
+    ]
+  },
+  {
+    "id": "lesson-19",
+    "title": "Lesson 19",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-19-word-0",
+        "text": "listen",
+        "image": "https://static.vecteezy.com/system/resources/previews/008/197/739/non_2x/cute-little-african-boy-with-hearing-problem-try-listening-attentively-by-putting-his-hand-to-his-ear-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-19-word-1",
+        "text": "hear",
+        "image": "https://cdn.vectorstock.com/i/500p/95/43/boy-using-hearing-aid-smiling-vector-50969543.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-19-word-2",
+        "text": "dog",
+        "image": "https://content.lyka.com.au/f/1016262/1104x676/e36872ce32/beagle.png/m/1200x630/smart/filters:format(jpeg)",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-19-word-3",
+        "text": "cat",
+        "image": "https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-19-word-4",
+        "text": "duck",
+        "image": "https://cdn.vectorstock.com/i/500p/10/01/cute-yellow-duckling-in-water-vector-57081001.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-19-word-5",
+        "text": "rooster",
+        "image": "https://thefrugalchicken.com/wp-content/uploads/2023/02/Roosters-min.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-19-word-6",
+        "text": "pig",
+        "image": "https://i.natgeofe.com/k/23e409f9-4699-46f0-a645-5cc1f5040363/pig-full-body.jpg?wp=1&w=1084.125&h=609",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-19-word-7",
+        "text": "elephant",
+        "image": "https://img.magnific.com/free-psd/majestic-elephant-isolated_23-2151857822.jpg?semt=ais_user_personalization&w=740&q=80",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83892885"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83893551"
+      }
+    ]
+  },
+  {
+    "id": "lesson-20",
+    "title": "Lesson 20",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-20-word-0",
+        "text": "Butterfly",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-20-word-1",
+        "text": "ladybug",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Coccinella-septempunctata-15-fws.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-20-word-2",
+        "text": "bumblebee",
+        "image": "https://cdn.shopify.com/s/files/1/1132/2638/files/iStock_26288140_LARGE_1024x1024.jpg?3223957927565558132",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-20-word-3",
+        "text": "fly",
+        "image": "https://test.lingopolo.org/dutch/sites/test.lingopolo.org.dutch/files/styles/entry/public/images/2020/07/27/voler.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-20-word-4",
+        "text": "tree",
+        "image": "https://www.collinsdictionary.com/images/full/tree_267376982.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-20-word-5",
+        "text": "sky",
+        "image": "https://www.worldatlas.com/r/w1200/upload/56/c5/7c/shutterstock-520792630.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83951731"
+      },
+      {
+        "text": "Handout 6- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-21",
+    "title": "Lesson 21",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-21-word-0",
+        "text": "Butterfly",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-21-word-1",
+        "text": "ladybug",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Coccinella-septempunctata-15-fws.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-21-word-2",
+        "text": "bumblebee",
+        "image": "https://cdn.shopify.com/s/files/1/1132/2638/files/iStock_26288140_LARGE_1024x1024.jpg?3223957927565558132",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-21-word-3",
+        "text": "head",
+        "image": "https://thumbs.dreamstime.com/b/boy-happy-surprised-cute-little-expression-hands-head-big-smile-40395377.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-21-word-4",
+        "text": "shoulder",
+        "image": "https://media.baamboozle.com/uploads/images/58796/1631212623_47955.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-21-word-5",
+        "text": "knees",
+        "image": "https://yourhomework.net/yhw/f/yhw-voca/2023/05/202305090042138337983.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-21-word-6",
+        "text": "toes",
+        "image": "https://media.istockphoto.com/id/1338463698/nl/vector/simple-colored-vector-illustration-top-view-of-two-feet-toes-nails-pedicure.jpg?s=612x612&w=0&k=20&c=Dub99dBkFZp4ZtRr25EEfufqEIZTsGb1cgtc872bDt0=",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/113881328"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112135036"
+      }
+    ]
+  },
+  {
+    "id": "lesson-22",
+    "title": "Lesson 22",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-22-word-0",
+        "text": "stand up",
+        "image": "https://cdn.hinative.com/attached_images/195989/cb6e247542b823a35251dfee6715e7f241bd0cdf/large.jpg?1509426652",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-22-word-1",
+        "text": "sit down",
+        "image": "https://yourhomework.net/yhw/bfc/images/vocabulary/english/sgk-tieng-anh-3-global-success-unit-7/sit-down.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-22-word-2",
+        "text": "spin round",
+        "image": "https://media.baamboozle.com/uploads/images/445344/1663237120_16778.gif",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-22-word-3",
+        "text": "turn around",
+        "image": "https://media.baamboozle.com/uploads/images/113812/1610483218_59035",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-22-word-4",
+        "text": "open hands",
+        "image": "https://t4.ftcdn.net/jpg/01/51/54/43/360_F_151544328_AZ672761YjvhpEZaV46pdBwCg2usEvNE.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-22-word-5",
+        "text": "shut hands",
+        "image": "https://t4.ftcdn.net/jpg/00/08/05/77/360_F_8057746_dh7OJQ0QkxAk0MMWihqgKrviZIRpD0ag.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-22-word-6",
+        "text": "clap hands",
+        "image": "https://i.pinimg.com/736x/98/06/9d/98069d9077c9899fb89c4599a2e99bc2.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112135835"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/113027983"
+      }
+    ]
+  },
+  {
+    "id": "lesson-23",
+    "title": "Lesson 23",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-23-word-0",
+        "text": "listen",
+        "image": "https://static.vecteezy.com/system/resources/previews/008/197/739/non_2x/cute-little-african-boy-with-hearing-problem-try-listening-attentively-by-putting-his-hand-to-his-ear-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-1",
+        "text": "hear",
+        "image": "https://cdn.vectorstock.com/i/500p/95/43/boy-using-hearing-aid-smiling-vector-50969543.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-2",
+        "text": "walk",
+        "image": "https://img.magnific.com/premium-vector/overweight-woman-walking-young-plus-size-girl-character-sportswear-exercising-be-slim-outdoor-fitness-healthy-lifestyle-active-sport-life-weight-loss-cartoon-people-vector-illustration_1016-10760.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-3",
+        "text": "hop",
+        "image": "https://media.baamboozle.com/uploads/images/529752/1639439057_87841.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-4",
+        "text": "run",
+        "image": "https://img.magnific.com/premium-vector/man-running-outdoor-summer-jogging-park-doing-exercise-cardio-workout-outside-vector_497399-33.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-5",
+        "text": "stop",
+        "image": "https://img.magnific.com/premium-vector/vector-illustration-cartoon-boy-holding-stop-sign_43633-3102.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-6",
+        "text": "tiptoe",
+        "image": "https://media.istockphoto.com/id/469138384/vector/boy-following-the-footprints.jpg?s=612x612&w=0&k=20&c=nDgbgmUuHsE-ITZe166CT5yHBIu7Frmt-HBOjq1UX4c=",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-7",
+        "text": "jump",
+        "image": "https://static.vecteezy.com/system/resources/previews/007/846/344/non_2x/cute-little-kid-jump-and-feel-happy-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-8",
+        "text": "swim",
+        "image": "https://swimstars.co/wp-content/uploads/2022/08/natation-adulte-swim-stars.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-9",
+        "text": "sleep",
+        "image": "https://static.vecteezy.com/system/resources/previews/046/467/583/non_2x/cartoon-little-boy-sleeping-in-the-bed-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-23-word-10",
+        "text": "wake up",
+        "image": "https://static.vecteezy.com/system/resources/previews/014/831/166/non_2x/cute-kid-waking-up-in-the-morning-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83956474"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/113028186"
+      }
+    ]
+  },
+  {
+    "id": "lesson-24",
+    "title": "Lesson 24",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-24-word-0",
+        "text": "Toy",
+        "image": "https://www.yorwaste.co.uk/wp-content/uploads/2024/08/shutterstock_436617280-scaled-optimised.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-24-word-1",
+        "text": "doll",
+        "image": "https://img.magnific.com/premium-vector/doll-cute-children-s-toy-with-red-hair-doll-beautiful-dress-vector-illustration-isolated-white-background_538993-337.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-24-word-2",
+        "text": "ball",
+        "image": "https://img.magnific.com/free-vector/fun-inflatable-beach-ball-icon-isolated_24877-83030.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-24-word-3",
+        "text": "butterfly",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-24-word-4",
+        "text": "ladybug",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Coccinella-septempunctata-15-fws.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-24-word-5",
+        "text": "bumblebee",
+        "image": "https://cdn.shopify.com/s/files/1/1132/2638/files/iStock_26288140_LARGE_1024x1024.jpg?3223957927565558132",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-24-word-6",
+        "text": "rooster",
+        "image": "https://thefrugalchicken.com/wp-content/uploads/2023/02/Roosters-min.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-24-word-7",
+        "text": "elephant",
+        "image": "https://img.magnific.com/free-psd/majestic-elephant-isolated_23-2151857822.jpg?semt=ais_user_personalization&w=740&q=80",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83957844"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83958897"
+      }
+    ]
+  },
+  {
+    "id": "lesson-25",
+    "title": "Lesson 25",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-25-word-0",
+        "text": "hungry",
+        "image": "https://img.magnific.com/premium-vector/happy-cute-kid-boy-feels-hungry-want-eat-thinks-about-food_97632-3409.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-25-word-1",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/1280px-Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-25-word-2",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-25-word-3",
+        "text": "grapes",
+        "image": "https://img.magnific.com/premium-vector/grape-flat-vector-illustration-white-background_674398-556.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-25-word-4",
+        "text": "watermelon",
+        "image": "https://static.vecteezy.com/system/resources/previews/011/126/298/non_2x/watermelon-slices-icon-clipart-fruits-in-cute-animated-cartoon-animated-illustration-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/83959763"
+      },
+      {
+        "text": "Handout 7- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-26",
+    "title": "Lesson 26",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-26-word-0",
+        "text": "yummy",
+        "image": "https://static.vecteezy.com/system/resources/previews/028/627/581/non_2x/alphabet-y-for-yummy-vocabulary-school-lesson-cartoon-illustration-clipart-sticker-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-26-word-1",
+        "text": "watermelon",
+        "image": "https://static.vecteezy.com/system/resources/previews/011/126/298/non_2x/watermelon-slices-icon-clipart-fruits-in-cute-animated-cartoon-animated-illustration-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-26-word-2",
+        "text": "eat",
+        "image": "https://img.magnific.com/premium-vector/cartoon-girl-eating-breakfast-with-spoon_1087929-13433.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-26-word-3",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-26-word-4",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/1280px-Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-26-word-5",
+        "text": "orange",
+        "image": "https://www.quanta.org/orange/orange.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-26-word-6",
+        "text": "strawberry",
+        "image": "https://cdn.mos.cms.futurecdn.net/4wwQNKxhra9z9oUaPfwkP3.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84067647"
+      },
+      {
+        "text": "Handout 8- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-27",
+    "title": "Lesson 27",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-27-word-0",
+        "text": "Living room",
+        "image": "https://img.magnific.com/premium-vector/living-room-with-panoramic-window-interior-cartoon-vector-illustration-3_1257089-2576.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-27-word-1",
+        "text": "bed room",
+        "image": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/ddac66130218473.617b087cbb003.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-27-word-2",
+        "text": "bathroom",
+        "image": "https://static.vecteezy.com/system/resources/previews/047/784/270/non_2x/a-cartoon-illustration-of-a-modern-bathroom-interior-featuring-a-bathtub-plants-natural-light-and-a-vanity-free-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-27-word-3",
+        "text": "kitchen",
+        "image": "https://img.magnific.com/premium-vector/kitchen-with-stove-oven-stove-window_1025542-70867.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-27-word-4",
+        "text": "garden",
+        "image": "https://img.magnific.com/premium-vector/jasmine-flowers-garden-vector-6_1257089-555.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-27-word-5",
+        "text": "house",
+        "image": "https://img.magnific.com/premium-vector/house-animation-style-vector-design_712895-7039.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84152725"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112160239"
+      }
+    ]
+  },
+  {
+    "id": "lesson-28",
+    "title": "Lesson 28",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-28-word-0",
+        "text": "pig",
+        "image": "https://i.natgeofe.com/k/23e409f9-4699-46f0-a645-5cc1f5040363/pig-full-body.jpg?wp=1&w=1084.125&h=609",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-1",
+        "text": "cow",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/047/392/273/small/a-black-and-white-dairy-cow-standing-with-an-udder-visible-png.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-2",
+        "text": "dog",
+        "image": "https://content.lyka.com.au/f/1016262/1104x676/e36872ce32/beagle.png/m/1200x630/smart/filters:format(jpeg)",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-3",
+        "text": "bear",
+        "image": "https://media.cnn.com/api/v1/images/stellar/prod/211125112643-bart-the-bear-ii.jpg?q=x_2,y_0,h_898,w_1596,c_crop/h_833,w_1480",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-4",
+        "text": "duck",
+        "image": "https://cdn.vectorstock.com/i/500p/10/01/cute-yellow-duckling-in-water-vector-57081001.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-5",
+        "text": "chicken",
+        "image": "https://thefrugalchicken.com/wp-content/uploads/2023/02/Roosters-min.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-6",
+        "text": "play",
+        "image": "https://static.vecteezy.com/system/resources/previews/010/640/475/non_2x/cute-little-boy-playing-with-his-toys-illustration-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-7",
+        "text": "eat",
+        "image": "https://img.magnific.com/premium-vector/cartoon-girl-eating-breakfast-with-spoon_1087929-13433.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-28-word-8",
+        "text": "sing",
+        "image": "https://static.vecteezy.com/system/resources/previews/007/700/290/non_2x/singer-girl-cartoon-character-with-melody-symbols-free-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112159940"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112238959"
+      }
+    ]
+  },
+  {
+    "id": "lesson-29",
+    "title": "Lesson 29",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-29-word-0",
+        "text": "circle",
+        "image": "https://www.pngall.com/wp-content/uploads/15/Pink-Circle-Background-PNG.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-29-word-1",
+        "text": "big- small",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-words-with-big-small_1308-53856.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-29-word-2",
+        "text": "round",
+        "image": "https://img.magnific.com/free-vector/stroke-round-geometric-shape-vector_53876-175080.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-29-word-3",
+        "text": "up- down",
+        "image": "https://img.magnific.com/premium-vector/cartoon-kid-walking-up-down-stairs_29937-11207.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-29-word-4",
+        "text": "sit down",
+        "image": "https://yourhomework.net/yhw/bfc/images/vocabulary/english/sgk-tieng-anh-3-global-success-unit-7/sit-down.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84107848"
+      },
+      {
+        "text": "Handout 9- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-30",
+    "title": "Lesson 30",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-30-word-0",
+        "text": "triangle",
+        "image": "https://img.magnific.com/free-vector/yellow-triangle-geometric-shape-vector_53876-175072.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-30-word-1",
+        "text": "circle",
+        "image": "https://www.pngall.com/wp-content/uploads/15/Pink-Circle-Background-PNG.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-30-word-2",
+        "text": "square",
+        "image": "https://img.magnific.com/premium-vector/red-square_410429-31192.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-30-word-3",
+        "text": "big- small",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-words-with-big-small_1308-53856.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84110659"
+      },
+      {
+        "text": "Handout 10- Workbook",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-31",
+    "title": "Lesson 31",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-31-word-0",
+        "text": "Living room",
+        "image": "https://img.magnific.com/premium-vector/living-room-with-panoramic-window-interior-cartoon-vector-illustration-3_1257089-2576.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-31-word-1",
+        "text": "bed room",
+        "image": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/ddac66130218473.617b087cbb003.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-31-word-2",
+        "text": "bathroom",
+        "image": "https://static.vecteezy.com/system/resources/previews/047/784/270/non_2x/a-cartoon-illustration-of-a-modern-bathroom-interior-featuring-a-bathtub-plants-natural-light-and-a-vanity-free-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-31-word-3",
+        "text": "kitchen",
+        "image": "https://img.magnific.com/premium-vector/kitchen-with-stove-oven-stove-window_1025542-70867.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-31-word-4",
+        "text": "garden",
+        "image": "https://img.magnific.com/premium-vector/jasmine-flowers-garden-vector-6_1257089-555.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-31-word-5",
+        "text": "house",
+        "image": "https://img.magnific.com/premium-vector/house-animation-style-vector-design_712895-7039.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112297499"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112324277"
+      }
+    ]
+  },
+  {
+    "id": "lesson-32",
+    "title": "Lesson 32",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-32-word-0",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-32-word-1",
+        "text": "bite",
+        "image": "https://www.momsrising.org/sites/default/files/styles/retina_quality/public/organic-fruit-girl-biting-apple.jpg?itok=pNjRDx-L",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-32-word-2",
+        "text": "cow",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/047/392/273/small/a-black-and-white-dairy-cow-standing-with-an-udder-visible-png.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-32-word-3",
+        "text": "duck",
+        "image": "https://cdn.vectorstock.com/i/500p/10/01/cute-yellow-duckling-in-water-vector-57081001.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-32-word-4",
+        "text": "rooster",
+        "image": "https://thefrugalchicken.com/wp-content/uploads/2023/02/Roosters-min.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-32-word-5",
+        "text": "elephant",
+        "image": "https://img.magnific.com/free-psd/majestic-elephant-isolated_23-2151857822.jpg?semt=ais_user_personalization&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-32-word-6",
+        "text": "smile",
+        "image": "https://static.vecteezy.com/system/resources/previews/009/931/402/non_2x/happy-smiling-emoji-cartoon-happiness-emoticon-smile-face-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112324102"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112353160"
+      }
+    ]
+  },
+  {
+    "id": "lesson-33",
+    "title": "Lesson 33",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-33-word-0",
+        "text": "food",
+        "image": "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,w_300,dpr_3/https://assets.app.engoo.com/images/x7jPxj9YtJfv97hnC3mMmQog5VwuYojZ7tlrhczGXIV.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-1",
+        "text": "pizza",
+        "image": "https://cellphones.com.vn/sforum/wp-content/uploads/2023/09/cach-nuong-pizza-thumbnail.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-2",
+        "text": "hotdog",
+        "image": "https://t4.ftcdn.net/jpg/05/04/79/85/360_F_504798531_rvLu6lD1wTeeF5SVvWJhIOyyKh4ib3nd.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-3",
+        "text": "burger",
+        "image": "https://cdn.uengage.io/uploads/29124/image-2611-1777033319.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-4",
+        "text": "spaghetti",
+        "image": "https://recipecontent.fooby.ch/24259_10-9_480-432@2x.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-5",
+        "text": "fruit",
+        "image": "https://cms.groupeditors.com/img/ghnw20150817-112916-561.jpg?w=&scale=both&quality=100",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-6",
+        "text": "watermelon",
+        "image": "https://d1ycuases8oak2.cloudfront.net/wp-content/uploads/2019/11/shutterstock_488357467-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-7",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-8",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-9",
+        "text": "strawberry",
+        "image": "https://assets.bonappetit.com/photos/58dbf6c8a6614f6f50816994/4:3/w_2591,h_1943,c_limit/20170323%20MOB6231_FINAL_crop.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-33-word-10",
+        "text": "candy",
+        "image": "https://cdn.creativefabrica.com/2023/10/20/Cartoon-candy-in-patterned-paper-wrap-S-Graphics-82094663-1-1-580x387.png",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112160666"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112358871"
+      }
+    ]
+  },
+  {
+    "id": "lesson-34",
+    "title": "Lesson 34",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-34-word-0",
+        "text": "food",
+        "image": "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,w_300,dpr_3/https://assets.app.engoo.com/images/x7jPxj9YtJfv97hnC3mMmQog5VwuYojZ7tlrhczGXIV.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-1",
+        "text": "pizza",
+        "image": "https://cellphones.com.vn/sforum/wp-content/uploads/2023/09/cach-nuong-pizza-thumbnail.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-2",
+        "text": "hotdog",
+        "image": "https://t4.ftcdn.net/jpg/05/04/79/85/360_F_504798531_rvLu6lD1wTeeF5SVvWJhIOyyKh4ib3nd.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-3",
+        "text": "burger",
+        "image": "https://cdn.uengage.io/uploads/29124/image-2611-1777033319.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-4",
+        "text": "spaghetti",
+        "image": "https://recipecontent.fooby.ch/24259_10-9_480-432@2x.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-5",
+        "text": "fruit",
+        "image": "https://cms.groupeditors.com/img/ghnw20150817-112916-561.jpg?w=&scale=both&quality=100",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-6",
+        "text": "watermelon",
+        "image": "https://d1ycuases8oak2.cloudfront.net/wp-content/uploads/2019/11/shutterstock_488357467-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-7",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-8",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-9",
+        "text": "strawberry",
+        "image": "https://assets.bonappetit.com/photos/58dbf6c8a6614f6f50816994/4:3/w_2591,h_1943,c_limit/20170323%20MOB6231_FINAL_crop.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-34-word-10",
+        "text": "candy",
+        "image": "https://cdn.creativefabrica.com/2023/10/20/Cartoon-candy-in-patterned-paper-wrap-S-Graphics-82094663-1-1-580x387.png",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112355456"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112360498"
+      }
+    ]
+  },
+  {
+    "id": "lesson-35",
+    "title": "Lesson 35",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-35-word-0",
+        "text": "Fruit Yogurt",
+        "image": "https://joyfullymad.com/wp-content/uploads/2024/02/creamy-fruit-salad-6.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-35-word-1",
+        "text": "yogurt",
+        "image": "https://en-chatelaine.mblycdn.com/ench/resized/2015/02/1600x900/homemade-yogurt-recipe-SOCIAL.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-35-word-2",
+        "text": "watermelon",
+        "image": "https://d1ycuases8oak2.cloudfront.net/wp-content/uploads/2019/11/shutterstock_488357467-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-35-word-3",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-35-word-4",
+        "text": "orange",
+        "image": "https://img.clevup.in/27189/1637777139819_SKU-4583_0?width=600&format=webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-35-word-5",
+        "text": "strawberry",
+        "image": "https://cdn.mos.cms.futurecdn.net/4wwQNKxhra9z9oUaPfwkP3.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112326619"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112363279"
+      }
+    ]
+  },
+  {
+    "id": "lesson-36",
+    "title": "Lesson 36",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-36-word-0",
+        "text": "Fruit Yogurt",
+        "image": "https://joyfullymad.com/wp-content/uploads/2024/02/creamy-fruit-salad-6.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-36-word-1",
+        "text": "yogurt",
+        "image": "https://en-chatelaine.mblycdn.com/ench/resized/2015/02/1600x900/homemade-yogurt-recipe-SOCIAL.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-36-word-2",
+        "text": "watermelon",
+        "image": "https://d1ycuases8oak2.cloudfront.net/wp-content/uploads/2019/11/shutterstock_488357467-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-36-word-3",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-36-word-4",
+        "text": "orange",
+        "image": "https://img.clevup.in/27189/1637777139819_SKU-4583_0?width=600&format=webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-36-word-5",
+        "text": "strawberry",
+        "image": "https://cdn.mos.cms.futurecdn.net/4wwQNKxhra9z9oUaPfwkP3.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112369879"
+      },
+      {
+        "text": "Con hoàn thành coloring poster \"fruit yogurt\" và quay video nói lại các bước làm fruit yogurt dựa vào tranh nhé!",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "id": "lesson-37",
+    "title": "Lesson 37",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-37-word-0",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-37-word-1",
+        "text": "bite",
+        "image": "https://www.momsrising.org/sites/default/files/styles/retina_quality/public/organic-fruit-girl-biting-apple.jpg?itok=pNjRDx-L",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-37-word-2",
+        "text": "cow",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cow_female_black_white.jpg/1280px-Cow_female_black_white.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-37-word-3",
+        "text": "duck",
+        "image": "https://cdn.vectorstock.com/i/500p/10/01/cute-yellow-duckling-in-water-vector-57081001.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-37-word-4",
+        "text": "rooster",
+        "image": "https://thefrugalchicken.com/wp-content/uploads/2023/02/Roosters-min.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-37-word-5",
+        "text": "elephant",
+        "image": "https://img.magnific.com/free-psd/majestic-elephant-isolated_23-2151857822.jpg?semt=ais_user_personalization&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-37-word-6",
+        "text": "smile",
+        "image": "https://static.vecteezy.com/system/resources/previews/003/660/834/non_2x/happy-smile-emoticon-expression-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "Con hoàn thành mini story book câu chuyện \"apples on the farm\" và quay video kể lại câu chuyện",
+        "url": ""
+      },
+      {
+        "text": "Bé thực hành chia đồ ăn cho các thành viên trong nhà.  Xem video mẫu",
+        "url": "https://drive.google.com/file/d/1dQkKCatYtA4-ySlzPvTYjteqj1OJtUHh/view?usp=drive_link"
+      }
+    ]
+  },
+  {
+    "id": "lesson-38",
+    "title": "Lesson 38",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-38-word-0",
+        "text": "food",
+        "image": "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,w_300,dpr_3/https://assets.app.engoo.com/images/x7jPxj9YtJfv97hnC3mMmQog5VwuYojZ7tlrhczGXIV.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-1",
+        "text": "pizza",
+        "image": "https://cellphones.com.vn/sforum/wp-content/uploads/2023/09/cach-nuong-pizza-thumbnail.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-2",
+        "text": "hotdog",
+        "image": "https://t4.ftcdn.net/jpg/05/04/79/85/360_F_504798531_rvLu6lD1wTeeF5SVvWJhIOyyKh4ib3nd.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-3",
+        "text": "burger",
+        "image": "https://cdn.uengage.io/uploads/29124/image-2611-1777033319.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-4",
+        "text": "spaghetti",
+        "image": "https://recipecontent.fooby.ch/24259_10-9_480-432@2x.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-5",
+        "text": "fruit",
+        "image": "https://cms.groupeditors.com/img/ghnw20150817-112916-561.jpg?w=&scale=both&quality=100",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-6",
+        "text": "watermelon",
+        "image": "https://d1ycuases8oak2.cloudfront.net/wp-content/uploads/2019/11/shutterstock_488357467-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-7",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-8",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-9",
+        "text": "strawberry",
+        "image": "https://assets.bonappetit.com/photos/58dbf6c8a6614f6f50816994/4:3/w_2591,h_1943,c_limit/20170323%20MOB6231_FINAL_crop.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-38-word-10",
+        "text": "candy",
+        "image": "https://cdn.creativefabrica.com/2023/10/20/Cartoon-candy-in-patterned-paper-wrap-S-Graphics-82094663-1-1-580x387.png",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "Con hoàn thành mini story book câu chuyện \"A farm picnic\" và quay video kể lại câu chuyện",
+        "url": ""
+      },
+      {
+        "text": "Bé thực hành giới thiệu các đồ ăn mình sẽ mang đi picnic nhé.  Xem video mẫu",
+        "url": "https://drive.google.com/file/d/1b4gYsbqQyUZqHy3jL8WyERm4_ShBqddI/view?usp=drive_link"
+      }
+    ]
+  },
+  {
+    "id": "lesson-39",
+    "title": "Lesson 39",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-39-word-0",
+        "text": "Living room",
+        "image": "https://img.magnific.com/premium-vector/living-room-with-panoramic-window-interior-cartoon-vector-illustration-3_1257089-2576.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-39-word-1",
+        "text": "bed room",
+        "image": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/ddac66130218473.617b087cbb003.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-39-word-2",
+        "text": "bathroom",
+        "image": "https://static.vecteezy.com/system/resources/previews/047/784/270/non_2x/a-cartoon-illustration-of-a-modern-bathroom-interior-featuring-a-bathtub-plants-natural-light-and-a-vanity-free-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-39-word-3",
+        "text": "kitchen",
+        "image": "https://img.magnific.com/premium-vector/kitchen-with-stove-oven-stove-window_1025542-70867.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-39-word-4",
+        "text": "garden",
+        "image": "https://img.magnific.com/premium-vector/jasmine-flowers-garden-vector-6_1257089-555.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-39-word-5",
+        "text": "house",
+        "image": "https://img.magnific.com/premium-vector/house-animation-style-vector-design_712895-7039.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "Con hoàn thành mini story book câu chuyện \"Where is my cat? \" và quay video kể lại câu chuyện",
+        "url": ""
+      },
+      {
+        "text": "Bé thực hành tìm các đồ vật trong nhà Xem video mẫu",
+        "url": "https://drive.google.com/file/d/17ruhHG8VL2vnqQrUgyQkpHdMloY1utvs/view?usp=drive_link"
+      }
+    ]
+  },
+  {
+    "id": "lesson-40",
+    "title": "Lesson 40",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-40-word-0",
+        "text": "walk",
+        "image": "https://img.magnific.com/premium-vector/overweight-woman-walking-young-plus-size-girl-character-sportswear-exercising-be-slim-outdoor-fitness-healthy-lifestyle-active-sport-life-weight-loss-cartoon-people-vector-illustration_1016-10760.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-1",
+        "text": "hop",
+        "image": "https://media.baamboozle.com/uploads/images/529752/1639439057_87841.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-2",
+        "text": "run",
+        "image": "https://img.magnific.com/premium-vector/man-running-outdoor-summer-jogging-park-doing-exercise-cardio-workout-outside-vector_497399-33.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-3",
+        "text": "stop",
+        "image": "https://img.magnific.com/premium-vector/vector-illustration-cartoon-boy-holding-stop-sign_43633-3102.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-4",
+        "text": "tiptoe",
+        "image": "https://media.istockphoto.com/id/469138384/vector/boy-following-the-footprints.jpg?s=612x612&w=0&k=20&c=nDgbgmUuHsE-ITZe166CT5yHBIu7Frmt-HBOjq1UX4c=",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-5",
+        "text": "jump",
+        "image": "https://static.vecteezy.com/system/resources/previews/007/846/344/non_2x/cute-little-kid-jump-and-feel-happy-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-6",
+        "text": "swim",
+        "image": "https://swimstars.co/wp-content/uploads/2022/08/natation-adulte-swim-stars.jpeg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-7",
+        "text": "sleep",
+        "image": "https://static.vecteezy.com/system/resources/previews/046/467/583/non_2x/cartoon-little-boy-sleeping-in-the-bed-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-8",
+        "text": "wake up",
+        "image": "https://static.vecteezy.com/system/resources/previews/014/831/166/non_2x/cute-kid-waking-up-in-the-morning-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-9",
+        "text": "stand up",
+        "image": "https://cdn.hinative.com/attached_images/195989/cb6e247542b823a35251dfee6715e7f241bd0cdf/large.jpg?1509426652",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-10",
+        "text": "sit down",
+        "image": "https://yourhomework.net/yhw/bfc/images/vocabulary/english/sgk-tieng-anh-3-global-success-unit-7/sit-down.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-11",
+        "text": "spin round",
+        "image": "https://media.baamboozle.com/uploads/images/445344/1663237120_16778.gif",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-12",
+        "text": "turn around",
+        "image": "https://media.baamboozle.com/uploads/images/113812/1610483218_59035",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-13",
+        "text": "open",
+        "image": "https://t4.ftcdn.net/jpg/01/51/54/43/360_F_151544328_AZ672761YjvhpEZaV46pdBwCg2usEvNE.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-14",
+        "text": "shut",
+        "image": "https://t4.ftcdn.net/jpg/00/08/05/77/360_F_8057746_dh7OJQ0QkxAk0MMWihqgKrviZIRpD0ag.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-15",
+        "text": "clap",
+        "image": "https://i.pinimg.com/736x/98/06/9d/98069d9077c9899fb89c4599a2e99bc2.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-16",
+        "text": "listen",
+        "image": "https://static.vecteezy.com/system/resources/previews/008/197/739/non_2x/cute-little-african-boy-with-hearing-problem-try-listening-attentively-by-putting-his-hand-to-his-ear-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-17",
+        "text": "hear",
+        "image": "https://cdn.vectorstock.com/i/500p/95/43/boy-using-hearing-aid-smiling-vector-50969543.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-18",
+        "text": "play",
+        "image": "https://static.vecteezy.com/system/resources/previews/020/946/176/non_2x/girls-play-with-dolls-free-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-19",
+        "text": "eat",
+        "image": "https://img.magnific.com/premium-vector/cartoon-girl-eating-breakfast-with-spoon_1087929-13433.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-20",
+        "text": "sing",
+        "image": "https://static.vecteezy.com/system/resources/previews/007/700/290/non_2x/singer-girl-cartoon-character-with-melody-symbols-free-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-40-word-21",
+        "text": "smile",
+        "image": "https://static.vecteezy.com/system/resources/previews/003/660/834/non_2x/happy-smile-emoticon-expression-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84153917"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84154150"
+      }
+    ]
+  },
+  {
+    "id": "lesson-41",
+    "title": "Lesson 41",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-41-word-0",
+        "text": "red",
+        "image": "https://i.pinimg.com/736x/bb/7d/1d/bb7d1d9e6ad751ab1a7eee88f8ffc2bc.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-41-word-1",
+        "text": "yellow",
+        "image": "https://cdn.creativefabrica.com/2022/06/09/Colored-yellow-paint-splashes-vector-ill-Graphics-32064010-1.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-41-word-2",
+        "text": "green",
+        "image": "https://clipart-library.com/2023/273-2735093_paint-zazzle-bahan-pigment-color-clipart-paint-splash.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-41-word-3",
+        "text": "blue",
+        "image": "https://www.liquitex.com/cdn/shop/files/140844_76b31bb6-ca25-4fe3-ae15-ed69756f9505.jpg?v=1762458316",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-41-word-4",
+        "text": "pink",
+        "image": "https://i.pinimg.com/736x/59/26/39/59263902fd58c988fc599ac900f1a097.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-41-word-5",
+        "text": "purple",
+        "image": "https://clipart-library.com/2023/9T4oRzxqc.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-41-word-6",
+        "text": "orange",
+        "image": "https://www.kindpng.com/picc/m/302-3029161_transparent-orange-clipart-orange-paint-splatter-clipart-hd.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-41-word-7",
+        "text": "brown",
+        "image": "https://www.pngitem.com/pimgs/m/43-434375_ink-splash-with-drops-brown-clip-art-at.png",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160089"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160172"
+      }
+    ]
+  },
+  {
+    "id": "lesson-42",
+    "title": "Lesson 42",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-42-word-0",
+        "text": "bear",
+        "image": "https://media.cnn.com/api/v1/images/stellar/prod/211125112643-bart-the-bear-ii.jpg?q=x_2,y_0,h_898,w_1596,c_crop/h_833,w_1480",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-1",
+        "text": "bird",
+        "image": "https://a-z-animals.com/media/2022/12/iStock-1338537172.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-2",
+        "text": "pig",
+        "image": "https://i.natgeofe.com/k/23e409f9-4699-46f0-a645-5cc1f5040363/pig-full-body.jpg?wp=1&w=1084.125&h=609",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-3",
+        "text": "penguin",
+        "image": "https://explore-live.s3.eu-west-1.amazonaws.com/medialibraries/explore/blog-images/2018%2012%20december/shutterstock_1080525158-2.jpg?ext=.jpg&width=620&format=webp&quality=80&v=202103231018",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-4",
+        "text": "monkey",
+        "image": "https://a-z-animals.com/media/2024/02/GettyImages-1410187446.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-5",
+        "text": "dog",
+        "image": "https://content.lyka.com.au/f/1016262/1104x676/e36872ce32/beagle.png/m/1200x630/smart/filters:format(jpeg)",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-6",
+        "text": "cat",
+        "image": "https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-7",
+        "text": "mouse",
+        "image": "https://protectthewild.org.uk/wp-content/uploads/2022/11/yellow-necked_mouse_square-768x768.webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-8",
+        "text": "fish",
+        "image": "https://aquaforest.eu/wp-content/uploads/2025/06/blazenek-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-9",
+        "text": "lion",
+        "image": "https://img.magnific.com/free-photo/african-lion-portrait-warm-light_475641-46.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-10",
+        "text": "shark",
+        "image": "https://cdn.britannica.com/79/65379-050-ED75F4D4/Shortfin-mako-shark-seas.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-11",
+        "text": "duck",
+        "image": "https://cdn.vectorstock.com/i/500p/10/01/cute-yellow-duckling-in-water-vector-57081001.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-12",
+        "text": "rooster",
+        "image": "https://thefrugalchicken.com/wp-content/uploads/2023/02/Roosters-min.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-13",
+        "text": "elephant",
+        "image": "https://img.magnific.com/free-psd/majestic-elephant-isolated_23-2151857822.jpg?semt=ais_user_personalization&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-14",
+        "text": "cow",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/047/392/273/small/a-black-and-white-dairy-cow-standing-with-an-udder-visible-png.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-15",
+        "text": "chicken",
+        "image": "https://thefrugalchicken.com/wp-content/uploads/2023/02/Roosters-min.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-16",
+        "text": "butterfly",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Morpho_menelaus_huebneri_MHNT_Male_Dos.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-17",
+        "text": "ladybug",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Coccinella-septempunctata-15-fws.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-42-word-18",
+        "text": "bumblebee",
+        "image": "https://cdn.shopify.com/s/files/1/1132/2638/files/iStock_26288140_LARGE_1024x1024.jpg?3223957927565558132",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160336"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160624"
+      }
+    ]
+  },
+  {
+    "id": "lesson-43",
+    "title": "Lesson 43",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-43-word-0",
+        "text": "circle",
+        "image": "https://www.pngall.com/wp-content/uploads/15/Pink-Circle-Background-PNG.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-43-word-1",
+        "text": "triangle",
+        "image": "https://img.magnific.com/free-vector/yellow-triangle-geometric-shape-vector_53876-175072.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-43-word-2",
+        "text": "square",
+        "image": "https://img.magnific.com/premium-vector/red-square_410429-31192.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-43-word-3",
+        "text": "round",
+        "image": "https://img.magnific.com/free-vector/stroke-round-geometric-shape-vector_53876-175080.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160523"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160704"
+      }
+    ]
+  },
+  {
+    "id": "lesson-44",
+    "title": "Lesson 44",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-44-word-0",
+        "text": "Living room",
+        "image": "https://img.magnific.com/premium-vector/living-room-with-panoramic-window-interior-cartoon-vector-illustration-3_1257089-2576.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-44-word-1",
+        "text": "bed room",
+        "image": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/ddac66130218473.617b087cbb003.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-44-word-2",
+        "text": "bathroom",
+        "image": "https://static.vecteezy.com/system/resources/previews/047/784/270/non_2x/a-cartoon-illustration-of-a-modern-bathroom-interior-featuring-a-bathtub-plants-natural-light-and-a-vanity-free-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-44-word-3",
+        "text": "kitchen",
+        "image": "https://img.magnific.com/premium-vector/kitchen-with-stove-oven-stove-window_1025542-70867.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-44-word-4",
+        "text": "garden",
+        "image": "https://img.magnific.com/premium-vector/jasmine-flowers-garden-vector-6_1257089-555.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-44-word-5",
+        "text": "house",
+        "image": "https://img.magnific.com/premium-vector/house-animation-style-vector-design_712895-7039.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160870"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84160942"
+      }
+    ]
+  },
+  {
+    "id": "lesson-45",
+    "title": "Lesson 45",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-45-word-0",
+        "text": "finger",
+        "image": "https://img.magnific.com/premium-photo/photo-man-hand-isolated-white-background_175994-262247.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-1",
+        "text": "hand",
+        "image": "https://cdn.mos.cms.futurecdn.net/mhJ2yWNwMtNcmijZqVEDDW-440-80.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-2",
+        "text": "arm",
+        "image": "https://img.magnific.com/premium-vector/arm-illustration_1083548-19491.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-3",
+        "text": "leg",
+        "image": "https://static.vecteezy.com/system/resources/previews/050/040/647/non_2x/human-leg-standing-on-tiptoe-cartoon-style-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-4",
+        "text": "eye",
+        "image": "https://www.lasikvisioninstitute.com/wp-content/uploads/2025/05/2149457573-1400x933.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-5",
+        "text": "ear",
+        "image": "https://img.magnific.com/free-vector/realistic-vector-icon-illustration-human-ear-isolated-white-background_134830-2293.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-6",
+        "text": "nose",
+        "image": "https://static.vecteezy.com/system/resources/previews/024/730/438/non_2x/human-nose-isolated-on-white-background-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-7",
+        "text": "mouth",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/058/369/370/small/smiling-mouth-with-white-teeth-and-red-lips-close-up-cartoon-illustration-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-8",
+        "text": "face",
+        "image": "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/03/GettyImages-1092658864_hero-1024x575.jpg?w=1155&h=1528",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-9",
+        "text": "head",
+        "image": "https://thumbs.dreamstime.com/b/boy-happy-surprised-cute-little-expression-hands-head-big-smile-40395377.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-10",
+        "text": "shoulder",
+        "image": "https://media.baamboozle.com/uploads/images/58796/1631212623_47955.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-11",
+        "text": "knees",
+        "image": "https://yourhomework.net/yhw/f/yhw-voca/2023/05/202305090042138337983.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-12",
+        "text": "toes",
+        "image": "https://media.istockphoto.com/id/1338463698/nl/vector/simple-colored-vector-illustration-top-view-of-two-feet-toes-nails-pedicure.jpg?s=612x612&w=0&k=20&c=Dub99dBkFZp4ZtRr25EEfufqEIZTsGb1cgtc872bDt0=",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-45-word-13",
+        "text": "chin",
+        "image": "https://static.vecteezy.com/system/resources/previews/047/553/093/non_2x/cartoon-illustration-of-a-boy-thinking-with-a-finger-on-his-chin-vector.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112794138"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112796270"
+      }
+    ]
+  },
+  {
+    "id": "lesson-46",
+    "title": "Lesson 46",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-46-word-0",
+        "text": "apple",
+        "image": "https://www.thehopsack.ie/wp-content/uploads/2024/08/apple-red.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-1",
+        "text": "banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-2",
+        "text": "orange",
+        "image": "https://img.clevup.in/27189/1637777139819_SKU-4583_0?width=600&format=webp",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-3",
+        "text": "strawberry",
+        "image": "https://assets.bonappetit.com/photos/58dbf6c8a6614f6f50816994/4:3/w_2591,h_1943,c_limit/20170323%20MOB6231_FINAL_crop.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-4",
+        "text": "grape / grapes",
+        "image": "https://img.magnific.com/premium-vector/grape-flat-vector-illustration-white-background_674398-556.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-5",
+        "text": "watermelon",
+        "image": "https://d1ycuases8oak2.cloudfront.net/wp-content/uploads/2019/11/shutterstock_488357467-scaled.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-6",
+        "text": "pizza",
+        "image": "https://cellphones.com.vn/sforum/wp-content/uploads/2023/09/cach-nuong-pizza-thumbnail.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-7",
+        "text": "hotdog",
+        "image": "https://t4.ftcdn.net/jpg/05/04/79/85/360_F_504798531_rvLu6lD1wTeeF5SVvWJhIOyyKh4ib3nd.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-8",
+        "text": "burger",
+        "image": "https://cdn.uengage.io/uploads/29124/image-2611-1777033319.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-9",
+        "text": "spaghetti",
+        "image": "https://recipecontent.fooby.ch/24259_10-9_480-432@2x.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-10",
+        "text": "candy",
+        "image": "https://cdn.creativefabrica.com/2023/10/20/Cartoon-candy-in-patterned-paper-wrap-S-Graphics-82094663-1-1-580x387.png",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-11",
+        "text": "chocolate cake",
+        "image": "https://static.vecteezy.com/system/resources/previews/014/167/748/non_2x/cocoa-chocolate-cake-icon-cartoon-party-food-vector.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-12",
+        "text": "cotton candy",
+        "image": "https://thumbs.dreamstime.com/b/cotton-candy-14296847.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-13",
+        "text": "pumpkin",
+        "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/pumpkin-3f3d894.jpg?quality=90&resize=700,636",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-14",
+        "text": "yogurt",
+        "image": "https://en-chatelaine.mblycdn.com/ench/resized/2015/02/1600x900/homemade-yogurt-recipe-SOCIAL.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-46-word-15",
+        "text": "fruit",
+        "image": "https://cms.groupeditors.com/img/ghnw20150817-112916-561.jpg?w=&scale=both&quality=100",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84162854"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/84163012"
+      }
+    ]
+  },
+  {
+    "id": "lesson-47",
+    "title": "Lesson 47",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-47-word-0",
+        "text": "toy",
+        "image": "https://www.yorwaste.co.uk/wp-content/uploads/2024/08/shutterstock_436617280-scaled-optimised.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-47-word-1",
+        "text": "doll",
+        "image": "https://img.magnific.com/premium-vector/doll-cute-children-s-toy-with-red-hair-doll-beautiful-dress-vector-illustration-isolated-white-background_538993-337.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-47-word-2",
+        "text": "ball",
+        "image": "https://img.magnific.com/free-vector/fun-inflatable-beach-ball-icon-isolated_24877-83030.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-47-word-3",
+        "text": "sun",
+        "image": "https://i.etsystatic.com/13434992/r/il/b012c5/3306704673/il_570xN.3306704673_hepv.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-47-word-4",
+        "text": "sky",
+        "image": "https://www.worldatlas.com/r/w1200/upload/56/c5/7c/shutterstock-520792630.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-47-word-5",
+        "text": "tree",
+        "image": "https://www.collinsdictionary.com/images/full/tree_267376982.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112796989"
+      },
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112799035"
+      }
+    ]
+  },
+  {
+    "id": "lesson-48",
+    "title": "Lesson 48",
+    "icon": "",
+    "words": [
+      {
+        "id": "lesson-48-word-0",
+        "text": "big – small",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-words-with-big-small_1308-53856.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-48-word-1",
+        "text": "fast – slow",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-fast-slow_1308-2858.jpg?semt=ais_hybrid&w=740&q=80",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-48-word-2",
+        "text": "loud – quiet",
+        "image": "https://cdn.vectorstock.com/i/500p/56/39/example-opposite-adjectives-word-for-kids-vector-38285639.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-48-word-3",
+        "text": "in – out",
+        "image": "https://img.magnific.com/free-vector/opposite-adjectives-with-out_1308-53924.jpg",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-48-word-4",
+        "text": "right – left",
+        "image": "https://i.ytimg.com/vi/mq4O6EzBqog/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAU83fTre4IU3Bc_GbkP7hbi-EBrA",
+        "phonetic": ""
+      },
+      {
+        "id": "lesson-48-word-5",
+        "text": "up – down",
+        "image": "https://img.magnific.com/premium-vector/cartoon-kid-walking-up-down-stairs_29937-11208.jpg",
+        "phonetic": ""
+      }
+    ],
+    "externalLinks": [
+      {
+        "text": "",
+        "url": "https://wordwall.net/resource/112798425"
+      },
+      {
+        "text": "Bé thực hành làm sữa chua hoa quả \"fruit yogurt\" và giới thiệu các bước làm.  Xem video mẫu",
+        "url": "https://drive.google.com/file/d/1jbj152BrVxz1C9aff9A2_yq_9AbO2MH4/view?usp=drive_link"
+      }
+    ]
+  }
+]

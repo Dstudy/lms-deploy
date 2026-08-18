@@ -10,14 +10,24 @@ if (!appId) {
   process.exit(1);
 }
 
-// Parse LESSONS array directly from the frontend TypeScript file (data is pure JSON syntax)
+// Load LESSONS data from local JSON or parse from frontend TypeScript file
+let LESSONS = [];
+const localJsonPath = path.join(__dirname, 'lessons-data.json');
 const tsFilePath = path.join(__dirname, '../../frontend/src/lib/lessons-data.ts');
-const tsContent = fs.readFileSync(tsFilePath, 'utf8');
-const arrayStart = tsContent.indexOf('export const LESSONS');
-const equalsSign = tsContent.indexOf('=', arrayStart);
-const bracketStart = tsContent.indexOf('[', equalsSign);
-const bracketEnd = tsContent.lastIndexOf(']');
-const LESSONS = JSON.parse(tsContent.slice(bracketStart, bracketEnd + 1));
+
+if (fs.existsSync(localJsonPath)) {
+  LESSONS = JSON.parse(fs.readFileSync(localJsonPath, 'utf8'));
+} else if (fs.existsSync(tsFilePath)) {
+  const tsContent = fs.readFileSync(tsFilePath, 'utf8');
+  const arrayStart = tsContent.indexOf('export const LESSONS');
+  const equalsSign = tsContent.indexOf('=', arrayStart);
+  const bracketStart = tsContent.indexOf('[', equalsSign);
+  const bracketEnd = tsContent.lastIndexOf(']');
+  LESSONS = JSON.parse(tsContent.slice(bracketStart, bracketEnd + 1));
+} else {
+  console.error('Error: Could not find lessons-data.json or lessons-data.ts to seed from.');
+  process.exit(1);
+}
 
 async function seed() {
   const conn = await pool.getConnection();
