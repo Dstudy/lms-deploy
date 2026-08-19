@@ -17,10 +17,16 @@ function mapLesson(row) {
 }
 
 async function fetchFullLesson(conn, lessonId, appId) {
-  const [[lesson]] = await conn.query(
-    'SELECT id, title, icon, sort_order, updated_at FROM lessons WHERE id = ? AND app_id = ?',
-    [lessonId, appId]
-  );
+  const [lessons] = appId
+    ? await conn.query(
+        'SELECT id, title, icon, sort_order, updated_at FROM lessons WHERE id = ? AND app_id = ?',
+        [lessonId, appId]
+      )
+    : await conn.query(
+        'SELECT id, title, icon, sort_order, updated_at FROM lessons WHERE id = ?',
+        [lessonId]
+      );
+  const lesson = lessons[0];
   if (!lesson) return null;
   const [words] = await conn.query(
     'SELECT id, text, image, phonetic, sort_order FROM lesson_words WHERE lesson_id = ? ORDER BY sort_order ASC',
@@ -87,12 +93,15 @@ router.get('/', requireAuth, async (req, res) => {
   }
 });
 
-// GET /api/lessons/:id — get one lesson (must belong to same app)
+// GET /api/lessons/:id — get one lesson (must belong to same app, or superadmin)
 router.get('/:id', requireAuth, async (req, res) => {
-  if (!req.user.appId) return res.status(403).json({ error: 'No app context in token' });
+  const appId = req.user.appId;
+  if (!appId && !req.user.isSuperAdmin) {
+    return res.status(403).json({ error: 'No app context in token' });
+  }
   const conn = await pool.getConnection();
   try {
-    const lesson = await fetchFullLesson(conn, req.params.id, req.user.appId);
+    const lesson = await fetchFullLesson(conn, req.params.id, appId);
     if (!lesson) return res.status(404).json({ error: 'Lesson not found' });
     return res.json({ lesson });
   } catch (err) {
