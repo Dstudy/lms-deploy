@@ -144,18 +144,30 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
       return;
     }
 
+    // Check Secure Context (HTTPS or localhost)
+    if (typeof window !== "undefined" && !window.isSecureContext && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
+      setFeedback({
+        msg: "Microphone access is blocked because the site is not using HTTPS. Browsers require HTTPS for microphone and speech features.",
+        type: "error",
+        bestMatch: "HTTPS Required",
+        accuracy: 0,
+      });
+      return;
+    }
+
     // Explicitly check/request microphone permission via getUserMedia first
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         stream.getTracks().forEach((track) => track.stop());
       } catch (err: any) {
+        console.error("Microphone permission error:", err);
         if (
           err.name === "NotAllowedError" ||
           err.name === "PermissionDeniedError"
         ) {
           setFeedback({
-            msg: "Microphone access blocked. Please allow microphone access in your browser/site settings.",
+            msg: "Microphone permission is blocked in your browser. Click the lock/settings icon in the address bar to allow Microphone access.",
             type: "error",
             bestMatch: "Mic Blocked",
             accuracy: 0,
@@ -166,14 +178,30 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
           err.name === "DevicesNotFoundError"
         ) {
           setFeedback({
-            msg: "No microphone found. Please connect a microphone and try again.",
+            msg: "No microphone detected. Please plug in or enable your microphone.",
             type: "error",
             bestMatch: "No Microphone",
             accuracy: 0,
           });
           return;
+        } else {
+          setFeedback({
+            msg: `Microphone access error: ${err.message || err.name}`,
+            type: "error",
+            bestMatch: "Mic Error",
+            accuracy: 0,
+          });
+          return;
         }
       }
+    } else if (!navigator.mediaDevices) {
+      setFeedback({
+        msg: "Microphone API (navigator.mediaDevices) is not available. Please access via HTTPS or use a supported browser like Chrome.",
+        type: "error",
+        bestMatch: "API Unavailable",
+        accuracy: 0,
+      });
+      return;
     }
 
     const recognition = new SpeechRecognition();
