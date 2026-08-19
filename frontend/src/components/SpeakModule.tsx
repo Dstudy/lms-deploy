@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WordData } from "@/lib/lessons-data";
+import { playSpeech } from "@/lib/speech";
 
 interface SpeakModuleProps {
   words: WordData[];
@@ -349,11 +350,7 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
 
   const playAudio = () => {
     if (!current) return;
-    const utterance = new SpeechSynthesisUtterance(current.text);
-    utterance.lang = "en-US";
-    utterance.rate = 0.85;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
+    playSpeech(current.text, { lang: "en-US", rate: 0.85 });
   };
 
   const handleRestart = () => {

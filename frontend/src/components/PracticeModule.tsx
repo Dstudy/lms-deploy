@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { WordData } from "@/lib/lessons-data";
+import { playSpeech } from "@/lib/speech";
 import { Button } from "@/components/ui/button";
 import {
   CheckCircle2,
@@ -121,9 +122,7 @@ export function PracticeModule({
   };
 
   const playOption = (word: string) => {
-    const utterance = new SpeechSynthesisUtterance(word);
-    utterance.lang = "en-US";
-    window.speechSynthesis.speak(utterance);
+    playSpeech(word, { lang: "en-US", rate: 0.85 });
   };
 
   const handleSelect = (option: WordData) => {

@@ -1,6 +1,7 @@
 "use client";
 
 import { WordData } from "@/lib/lessons-data";
+import { playSpeech } from "@/lib/speech";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,10 +30,7 @@ export function LearnModule({ words, index, setIndex }: LearnModuleProps) {
 
   const playAudio = () => {
     if (!current) return;
-    const utterance = new SpeechSynthesisUtterance(current.text);
-    utterance.lang = "en-US";
-    utterance.rate = 0.8;
-    window.speechSynthesis.speak(utterance);
+    playSpeech(current.text, { lang: "en-US", rate: 0.85 });
   };
 
   const next = () => {
