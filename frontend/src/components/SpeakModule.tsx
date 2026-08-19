@@ -124,19 +124,56 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
     return 0;
   };
 
-  const handleSpeech = () => {
+  const handleSpeech = async () => {
     const SpeechRecognition =
       (window as any).SpeechRecognition ||
       (window as any).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-      alert("Browser not supported");
+      setFeedback({
+        msg: "Speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.",
+        type: "error",
+        bestMatch: "Not Supported",
+        accuracy: 0,
+      });
       return;
     }
 
     if (isRecording && recognitionRef.current) {
       recognitionRef.current.stop();
       return;
+    }
+
+    // Explicitly check/request microphone permission via getUserMedia first
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        stream.getTracks().forEach((track) => track.stop());
+      } catch (err: any) {
+        if (
+          err.name === "NotAllowedError" ||
+          err.name === "PermissionDeniedError"
+        ) {
+          setFeedback({
+            msg: "Microphone access blocked. Please allow microphone access in your browser/site settings.",
+            type: "error",
+            bestMatch: "Mic Blocked",
+            accuracy: 0,
+          });
+          return;
+        } else if (
+          err.name === "NotFoundError" ||
+          err.name === "DevicesNotFoundError"
+        ) {
+          setFeedback({
+            msg: "No microphone found. Please connect a microphone and try again.",
+            type: "error",
+            bestMatch: "No Microphone",
+            accuracy: 0,
+          });
+          return;
+        }
+      }
     }
 
     const recognition = new SpeechRecognition();
@@ -162,7 +199,7 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
       const target = current.text.toLowerCase().trim();
       const cleanedTarget = target.replace(/[^a-z0-9]/g, "");
 
-      let bestMatch = results[0];
+      let bestMatch = results[0] || "";
       let maxAccuracy = 0;
 
       results.forEach((r) => {
@@ -217,9 +254,55 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
       }
     };
 
-    recognition.onerror = () => setIsRecording(false);
+    recognition.onerror = (event: any) => {
+      setIsRecording(false);
+      const error = event.error;
+      if (error === "not-allowed" || error === "service-not-allowed") {
+        setFeedback({
+          msg: "Microphone access blocked. Please allow microphone access in your browser/site settings.",
+          type: "error",
+          bestMatch: "Mic Blocked",
+          accuracy: 0,
+        });
+      } else if (error === "no-speech") {
+        setFeedback({
+          msg: "No speech detected. Please speak clearly into your microphone.",
+          type: "error",
+          bestMatch: "No Speech Detected",
+          accuracy: 0,
+        });
+      } else if (error === "audio-capture") {
+        setFeedback({
+          msg: "No microphone detected. Please check your audio input device.",
+          type: "error",
+          bestMatch: "No Mic Found",
+          accuracy: 0,
+        });
+      } else if (error === "network") {
+        setFeedback({
+          msg: "Network error connecting to speech recognition service.",
+          type: "error",
+          bestMatch: "Network Error",
+          accuracy: 0,
+        });
+      } else if (error !== "aborted") {
+        setFeedback({
+          msg: `Speech recognition error: ${error}`,
+          type: "error",
+          bestMatch: error,
+          accuracy: 0,
+        });
+      }
+    };
+
     recognition.onend = () => setIsRecording(false);
-    recognition.start();
+
+    try {
+      recognition.start();
+    } catch (err) {
+      console.error("Failed to start speech recognition:", err);
+      setIsRecording(false);
+    }
   };
 
   const handleNext = () => {
