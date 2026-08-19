@@ -12,6 +12,9 @@ import {
   ChevronRight,
   Sparkles,
   User as UserIcon,
+  Lock,
+  Copy,
+  Check,
 } from "lucide-react";
 import Link from "next/link";
 import { LearnModule } from "@/components/LearnModule";
@@ -25,6 +28,8 @@ import {
   getUserProgress,
   saveUserProgress,
   getLessonById,
+  loginWithEmailAndPassword,
+  getToken,
   StoredUser,
 } from "@/lib/api";
 
@@ -34,8 +39,16 @@ export default function LessonClient({ id }: { id: string }) {
 
   // ---------------- AUTH ----------------
   const [user, setUser] = useState<StoredUser | null>(null);
+  const [authChecking, setAuthChecking] = useState(true);
   const [username, setUsername] = useState("");
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+
+  // Login form states (for direct or unauthenticated lesson entry)
+  const [accountOrEmail, setAccountOrEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [loginSubmitting, setLoginSubmitting] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
 
   // ---------------- MODULE NAV ----------------
   const [activeModule, setActiveModule] = useState<
@@ -74,6 +87,7 @@ export default function LessonClient({ id }: { id: string }) {
   useEffect(() => {
     const unsubscribe = checkAuthState(async (currentUser) => {
       setUser(currentUser);
+      setAuthChecking(false);
       if (currentUser) {
         try {
           const response = await getUserProfile(currentUser.id);
@@ -93,20 +107,33 @@ export default function LessonClient({ id }: { id: string }) {
   // ---------------- FETCH LESSON ----------------
   useEffect(() => {
     if (!user) return;
+    setLessonLoading(true);
     getLessonById(id)
       .then(({ lesson: fetchedLesson }) => setLesson(fetchedLesson))
       .catch(() => setLesson(null))
       .finally(() => setLessonLoading(false));
   }, [user, id]);
 
-  // ---------------- ZALO DETECT ----------------
+  // ---------------- ZALO DETECT & TOKEN SYNC ----------------
   useEffect(() => {
     const ua = navigator.userAgent || navigator.vendor;
 
     if (/Zalo/i.test(ua)) {
       setIsZalo(true);
+      const token = getToken();
+      if (token && typeof window !== "undefined") {
+        try {
+          const url = new URL(window.location.href);
+          if (!url.searchParams.has("auth_token")) {
+            url.searchParams.set("auth_token", token);
+            window.history.replaceState({}, document.title, url.toString());
+          }
+        } catch (e) {
+          console.error("Error updating URL with auth_token for Zalo:", e);
+        }
+      }
     }
-  }, []);
+  }, [user]);
 
   // ---------------- LOAD PROGRESS ----------------
   useEffect(() => {
@@ -201,11 +228,126 @@ export default function LessonClient({ id }: { id: string }) {
     return () => clearTimeout(timer);
   }, [p2Stars, learnIndex, p3Score, p4LinksCount, user, lesson, isDataLoaded]);
 
+  // ---------------- LOGIN HANDLER ----------------
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError("");
+    setLoginSubmitting(true);
+
+    const input = accountOrEmail.trim();
+    const finalEmail = input.includes("@") ? input : `${input}@uni.edu.com`;
+
+    try {
+      const loggedInUser = await loginWithEmailAndPassword(finalEmail, password);
+      setUser(loggedInUser);
+      setUsername(loggedInUser.username ?? "");
+      setAccountOrEmail("");
+      setPassword("");
+    } catch (err: any) {
+      console.error("Login error:", err);
+      if (err.status === 401) {
+        setLoginError("Invalid student account ID or password. Please try again.");
+      } else {
+        setLoginError("Authentication failed. Please try again later.");
+      }
+    } finally {
+      setLoginSubmitting(false);
+    }
+  };
+
+  // ---------------- AUTH CHECKING & LOGIN VIEW ----------------
+  if (authChecking) {
+    return (
+      <div className="flex items-center justify-center min-h-[70vh] px-6">
+        <div className="text-slate-500 font-medium animate-pulse">Checking session...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <main className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl p-6 sm:p-8">
+          <div className="text-center mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center mx-auto mb-3 text-indigo-600 shadow-inner">
+              <BookOpen className="w-7 h-7" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-800">
+              Sign In to Open Lesson
+            </h2>
+            <p className="text-slate-500 text-sm mt-1">
+              Please enter your account details to access this interactive lesson
+            </p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            {loginError && (
+              <div className="p-3 bg-rose-50 border border-rose-100 text-rose-600 text-sm font-medium rounded-xl">
+                {loginError}
+              </div>
+            )}
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">
+                Account ID or Email
+              </label>
+              <div className="relative">
+                <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <input
+                  type="text"
+                  placeholder="Enter your student number or email"
+                  value={accountOrEmail}
+                  onChange={(e) => setAccountOrEmail(e.target.value)}
+                  className="w-full pl-10 pr-4 h-12 rounded-xl border border-slate-200 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-10 pr-4 h-12 rounded-xl border border-slate-200 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                  required
+                />
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              disabled={loginSubmitting}
+              className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg transition-all"
+            >
+              {loginSubmitting ? "Signing in..." : "Open Lesson"}
+            </Button>
+          </form>
+
+          <div className="mt-6 text-center">
+            <Link
+              href="/"
+              className="text-xs font-semibold text-slate-500 hover:text-indigo-600 inline-flex items-center gap-1"
+            >
+              <Home className="w-3.5 h-3.5" /> Return to Homepage
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   // ---------------- NOT FOUND / LOADING ----------------
   if (lessonLoading) {
     return (
       <div className="flex items-center justify-center min-h-[70vh] px-6">
-        <div className="text-slate-500 font-medium">Loading lesson...</div>
+        <div className="text-slate-500 font-medium animate-pulse">Loading lesson...</div>
       </div>
     );
   }
@@ -213,11 +355,16 @@ export default function LessonClient({ id }: { id: string }) {
   if (!lesson) {
     return (
       <div className="flex items-center justify-center min-h-[70vh] px-6">
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-10 text-center">
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-10 text-center max-w-md">
           <h2 className="text-3xl font-black text-slate-800 mb-2">
             Lesson Not Found
           </h2>
-          <p className="text-slate-500">This lesson may have been removed.</p>
+          <p className="text-slate-500 mb-6">This lesson may have been removed or you do not have permission to view it.</p>
+          <Link href="/">
+            <Button variant="outline" className="rounded-xl font-bold">
+              <Home className="w-4 h-4 mr-2" /> Back to Lessons
+            </Button>
+          </Link>
         </div>
       </div>
     );
@@ -612,7 +759,7 @@ export default function LessonClient({ id }: { id: string }) {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  Nhấn vào <b>dấu 3 chấm</b> ở góc trên bên phải.
+                  Nhấn vào <b>dấu 3 chấm (⋯)</b> ở góc trên bên phải màn hình Zalo.
                 </p>
               </div>
 
@@ -622,25 +769,52 @@ export default function LessonClient({ id }: { id: string }) {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  Chọn <b>"Mở bằng trình duyệt"</b>.
+                  Chọn <b>"Mở bằng trình duyệt"</b> (Safari trên iPhone / Chrome trên Android).
                 </p>
               </div>
             </div>
 
-            <Button
-              className="
-            w-full mt-6 sm:mt-8
-            h-12 sm:h-14
-            rounded-2xl
-            bg-blue-600 hover:bg-blue-700
-            font-black
-            text-base sm:text-lg
-            shadow-lg
-          "
-              onClick={() => setActiveModule("learn")}
-            >
-              HỌC TỪ VỰNG TRƯỚC
-            </Button>
+            <div className="mt-6 flex flex-col gap-2.5">
+              <Button
+                variant="outline"
+                className="w-full h-12 rounded-2xl border-slate-200 font-bold text-slate-700 text-sm flex items-center justify-center gap-2"
+                onClick={() => {
+                  const token = getToken();
+                  const url = new URL(window.location.href);
+                  if (token) url.searchParams.set("auth_token", token);
+                  navigator.clipboard?.writeText(url.toString());
+                  setCopiedLink(true);
+                  setTimeout(() => setCopiedLink(false), 3000);
+                }}
+              >
+                {copiedLink ? (
+                  <>
+                    <Check className="w-4 h-4 text-green-600" />
+                    <span className="text-green-600">Đã sao chép link Safari!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 text-slate-500" />
+                    <span>Sao chép liên kết mở Safari</span>
+                  </>
+                )}
+              </Button>
+
+              <Button
+                className="
+              w-full
+              h-12 sm:h-14
+              rounded-2xl
+              bg-blue-600 hover:bg-blue-700
+              font-black
+              text-base sm:text-lg
+              shadow-lg
+            "
+                onClick={() => setActiveModule("learn")}
+              >
+                HỌC TỪ VỰNG TRƯỚC
+              </Button>
+            </div>
           </div>
         </div>
       )}

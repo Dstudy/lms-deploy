@@ -36,12 +36,64 @@ export function getStoredUser(): StoredUser | null {
   catch { return null; }
 }
 
+export function parseJwtPayload(token: string): any {
+  try {
+    const base64Url = token.split(".")[1];
+    if (!base64Url) return null;
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join("")
+    );
+    return JSON.parse(jsonPayload);
+  } catch {
+    return null;
+  }
+}
+
 // ─── onAuthStateChanged replacement ───────────────────────────────────────────
 // Reads localStorage synchronously, fires the callback asynchronously (matching
 // Firebase's async behaviour), returns a no-op unsubscribe for API symmetry.
 export function checkAuthState(
   callback: (user: StoredUser | null) => void
 ): () => void {
+  if (typeof window !== "undefined") {
+    const stored = getStoredUser();
+    if (!stored) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const authToken = urlParams.get("auth_token");
+      if (authToken) {
+        try {
+          const payload = parseJwtPayload(authToken);
+          if (payload && payload.id && (!payload.exp || payload.exp * 1000 > Date.now())) {
+            const userObj: StoredUser = {
+              id: payload.id,
+              username: payload.username || "",
+              email: payload.email,
+              role: payload.role,
+              appId: payload.appId,
+              appSlug: payload.appSlug,
+            };
+            saveSession(authToken, userObj);
+            urlParams.delete("auth_token");
+            const newSearch = urlParams.toString();
+            const cleanUrl =
+              window.location.pathname +
+              (newSearch ? `?${newSearch}` : "") +
+              window.location.hash;
+            window.history.replaceState({}, document.title, cleanUrl);
+            setTimeout(() => callback(userObj), 0);
+            return () => {};
+          }
+        } catch (e) {
+          console.error("Error restoring session from auth_token:", e);
+        }
+      }
+    }
+  }
+
   const user = getStoredUser();
   setTimeout(() => callback(user), 0);
   return () => {};
