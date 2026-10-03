@@ -185,7 +185,7 @@ export function parseLessonsFromRawRows(rawRows: string[][]): ParseLessonCSVResu
     const rowNum = r + 1; // 1-indexed for human readability
 
     // Extract cell values safely
-    const getVal = (idx: number | undefined) => (idx !== undefined && idx < row.length ? row[idx].trim() : "");
+    const getVal = (idx: number | undefined) => (idx !== undefined && idx < row.length ? String(row[idx] ?? "").trim() : "");
 
     let rawLessonId = getVal(headerMap.lessonId);
     let rawTitle = getVal(headerMap.title);

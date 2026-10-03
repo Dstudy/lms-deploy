@@ -83,20 +83,35 @@ async function insertWordsAndLinks(conn, lessonId, words, externalLinks) {
     const wordValues = words.map((w, j) => [
       w.id || `${lessonId}-word-${j}`,
       lessonId,
-      w.text || '',
-      w.image || '',
-      w.phonetic || '',
+      String(w.text ?? ''),
+      String(w.image ?? ''),
+      String(w.phonetic ?? ''),
       j,
     ]);
     await conn.query(
-      'INSERT INTO lesson_words (id, lesson_id, text, image, phonetic, sort_order) VALUES ?',
+      `INSERT INTO lesson_words (id, lesson_id, text, image, phonetic, sort_order) 
+       VALUES ? 
+       ON DUPLICATE KEY UPDATE 
+         text = VALUES(text), 
+         image = VALUES(image), 
+         phonetic = VALUES(phonetic), 
+         sort_order = VALUES(sort_order)`,
       [wordValues]
     );
   }
   if (externalLinks && externalLinks.length > 0) {
-    const linkValues = externalLinks.map((l, k) => [lessonId, l.text || '', l.url || '', k]);
+    const linkValues = externalLinks.map((l, k) => [
+      lessonId,
+      String(l.text ?? ''),
+      String(l.url ?? ''),
+      k,
+    ]);
     await conn.query(
-      'INSERT INTO lesson_links (lesson_id, text, url, sort_order) VALUES ?',
+      `INSERT INTO lesson_links (lesson_id, text, url, sort_order) 
+       VALUES ? 
+       ON DUPLICATE KEY UPDATE 
+         text = VALUES(text), 
+         url = VALUES(url)`,
       [linkValues]
     );
   }
@@ -148,6 +163,7 @@ router.get('/:id', requireAuth, async (req, res) => {
 router.post('/bulk', requireAdmin, async (req, res) => {
   const { lessons, overwrite = true } = req.body;
   const appId = req.user.appId;
+  let appSlug = req.user.appSlug;
   if (!appId) return res.status(403).json({ error: 'No app context in token' });
   if (!Array.isArray(lessons) || lessons.length === 0) {
     return res.status(400).json({ error: 'lessons array is required and must not be empty' });
@@ -155,6 +171,11 @@ router.post('/bulk', requireAdmin, async (req, res) => {
 
   const conn = await pool.getConnection();
   try {
+    if (!appSlug) {
+      const [[appRow]] = await conn.query('SELECT slug FROM apps WHERE id = ?', [appId]);
+      appSlug = appRow?.slug || appId;
+    }
+
     await conn.beginTransaction();
 
     let createdCount = 0;
@@ -166,7 +187,7 @@ router.post('/bulk', requireAdmin, async (req, res) => {
 
     for (let i = 0; i < lessons.length; i++) {
       const item = lessons[i];
-      const lessonId = String(item.id || '').trim();
+      let lessonId = String(item.id || '').trim();
       const title = String(item.title || '').trim();
       const icon = String(item.icon || '').trim();
       const sortOrder = Number.isFinite(Number(item.sortOrder)) ? Number(item.sortOrder) : i + 1;
@@ -178,10 +199,32 @@ router.post('/bulk', requireAdmin, async (req, res) => {
         continue;
       }
 
-      const [[existing]] = await conn.query(
+      // Check if this lesson exists for the current app
+      let [[existing]] = await conn.query(
         'SELECT id FROM lessons WHERE id = ? AND app_id = ?',
         [lessonId, appId]
       );
+
+      // If not found in current app, check if this lessonId is claimed by another app
+      if (!existing) {
+        const [[otherAppLesson]] = await conn.query(
+          'SELECT id, app_id FROM lessons WHERE id = ?',
+          [lessonId]
+        );
+        if (otherAppLesson && otherAppLesson.app_id !== appId) {
+          // Scope the lesson ID to current app to avoid global primary key collision
+          const scopedId = `${appSlug}-${lessonId}`;
+          lessonId = scopedId;
+
+          const [[scopedExisting]] = await conn.query(
+            'SELECT id FROM lessons WHERE id = ? AND app_id = ?',
+            [lessonId, appId]
+          );
+          if (scopedExisting) {
+            existing = scopedExisting;
+          }
+        }
+      }
 
       if (existing) {
         if (overwrite) {
@@ -227,7 +270,13 @@ router.post('/bulk', requireAdmin, async (req, res) => {
   } catch (err) {
     await conn.rollback();
     console.error('Bulk lessons import error:', err);
-    return res.status(500).json({ error: 'Internal server error during bulk import' });
+    let errorMsg = err.sqlMessage || err.message || 'Internal server error during bulk import';
+    if (err.code === 'ER_DUP_ENTRY') {
+      errorMsg = `Duplicate entry conflict: A record with this ID already exists (${err.sqlMessage || err.message}).`;
+    } else if (err.code === 'ER_DATA_TOO_LONG') {
+      errorMsg = `Data too long: A field value exceeds the allowed length (${err.sqlMessage || err.message}).`;
+    }
+    return res.status(500).json({ error: errorMsg, details: err.message, code: err.code });
   } finally {
     conn.release();
   }
@@ -235,18 +284,38 @@ router.post('/bulk', requireAdmin, async (req, res) => {
 
 // POST /api/lessons — create lesson scoped to admin's app
 router.post('/', requireAdmin, async (req, res) => {
-  const { id, title, icon, sortOrder, words, externalLinks } = req.body;
+  let { id, title, icon, sortOrder, words, externalLinks } = req.body;
   const appId = req.user.appId;
+  let appSlug = req.user.appSlug;
   if (!appId) return res.status(403).json({ error: 'No app context in token' });
   if (!id || !title) return res.status(400).json({ error: 'id and title are required' });
 
   const conn = await pool.getConnection();
   try {
-    const [[existing]] = await conn.query(
+    if (!appSlug) {
+      const [[appRow]] = await conn.query('SELECT slug FROM apps WHERE id = ?', [appId]);
+      appSlug = appRow?.slug || appId;
+    }
+
+    let [[existing]] = await conn.query(
       'SELECT id FROM lessons WHERE id = ? AND app_id = ?',
       [id, appId]
     );
     if (existing) return res.status(409).json({ error: 'A lesson with that ID already exists in this app' });
+
+    // Check if claimed by another app
+    const [[otherAppLesson]] = await conn.query(
+      'SELECT id, app_id FROM lessons WHERE id = ?',
+      [id]
+    );
+    if (otherAppLesson && otherAppLesson.app_id !== appId) {
+      id = `${appSlug}-${id}`;
+      const [[scopedExisting]] = await conn.query(
+        'SELECT id FROM lessons WHERE id = ? AND app_id = ?',
+        [id, appId]
+      );
+      if (scopedExisting) return res.status(409).json({ error: 'A lesson with that ID already exists in this app' });
+    }
 
     await conn.beginTransaction();
     await conn.query(
@@ -261,7 +330,9 @@ router.post('/', requireAdmin, async (req, res) => {
   } catch (err) {
     await conn.rollback();
     console.error('Create lesson error:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({
+      error: err.sqlMessage || err.message || 'Internal server error',
+    });
   } finally {
     conn.release();
   }
@@ -297,8 +368,7 @@ router.put('/:id', requireAdmin, async (req, res) => {
     return res.json({ lesson });
   } catch (err) {
     await conn.rollback();
-    console.error('Update lesson error:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({ error: err.sqlMessage || err.message || 'Internal server error' });
   } finally {
     conn.release();
   }
