@@ -80,18 +80,26 @@ async function fetchFullLesson(conn, lessonId, appId) {
 
 async function insertWordsAndLinks(conn, lessonId, words, externalLinks) {
   if (words && words.length > 0) {
-    const wordValues = words.map((w, j) => [
-      w.id || `${lessonId}-word-${j}`,
-      lessonId,
-      String(w.text ?? ''),
-      String(w.image ?? ''),
-      String(w.phonetic ?? ''),
-      j,
-    ]);
+    const wordValues = words.map((w, j) => {
+      // Ensure the word ID is always prefixed with the actual lessonId to guarantee
+      // global uniqueness and prevent cross-app primary key collisions in lesson_words
+      const wordId = (w.id && String(w.id).startsWith(`${lessonId}-word-`))
+        ? String(w.id)
+        : `${lessonId}-word-${j}`;
+      return [
+        wordId,
+        lessonId,
+        String(w.text ?? ''),
+        String(w.image ?? ''),
+        String(w.phonetic ?? ''),
+        j,
+      ];
+    });
     await conn.query(
       `INSERT INTO lesson_words (id, lesson_id, text, image, phonetic, sort_order) 
        VALUES ? 
        ON DUPLICATE KEY UPDATE 
+         lesson_id = VALUES(lesson_id),
          text = VALUES(text), 
          image = VALUES(image), 
          phonetic = VALUES(phonetic), 
@@ -246,6 +254,8 @@ router.post('/bulk', requireAdmin, async (req, res) => {
           'INSERT INTO lessons (id, app_id, title, icon, sort_order) VALUES (?, ?, ?, ?, ?)',
           [lessonId, appId, title, icon, sortOrder]
         );
+        await conn.query('DELETE FROM lesson_words WHERE lesson_id = ?', [lessonId]);
+        await conn.query('DELETE FROM lesson_links WHERE lesson_id = ?', [lessonId]);
         await insertWordsAndLinks(conn, lessonId, words, externalLinks);
         createdCount++;
         totalWords += words.length;
@@ -322,6 +332,8 @@ router.post('/', requireAdmin, async (req, res) => {
       'INSERT INTO lessons (id, app_id, title, icon, sort_order) VALUES (?, ?, ?, ?, ?)',
       [id, appId, title, icon || '', sortOrder ?? 0]
     );
+    await conn.query('DELETE FROM lesson_words WHERE lesson_id = ?', [id]);
+    await conn.query('DELETE FROM lesson_links WHERE lesson_id = ?', [id]);
     await insertWordsAndLinks(conn, id, words, externalLinks);
     await conn.commit();
 
