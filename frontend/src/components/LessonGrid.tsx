@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { Card } from "@/components/ui/card";
 import { Star, CheckCircle2 } from "lucide-react";
 
@@ -13,6 +13,23 @@ import {
   LessonSummary,
   StoredUser,
 } from "@/lib/api";
+
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
+const DEFAULT_ICON = "/icon/Logo.png";
+
+/**
+ * Resolves a lesson icon value to a renderable URL:
+ * - Empty / null  → default frontend icon
+ * - Absolute URL  → used as-is
+ * - Relative path starting with "uploads/" → prepend backend BASE_URL
+ * - Any other path (e.g. "/icon/Logo.png") → used as-is (frontend-served)
+ */
+function resolveIconUrl(icon: string | undefined): string {
+  if (!icon || icon.trim() === "") return DEFAULT_ICON;
+  if (icon.startsWith("http://") || icon.startsWith("https://")) return icon;
+  if (icon.startsWith("uploads/")) return `${BASE_URL}/${icon}`;
+  return icon;
+}
 
 interface LessonGridProps {
   onProgressCalculated?: (completedCount: number, totalCount: number) => void;
@@ -210,12 +227,13 @@ export function LessonGrid({ onProgressCalculated }: LessonGridProps) {
                     group-hover:scale-105
                   "
                   >
-                    <Image
-                      src="/icon/Logo.png"
-                      alt="Lesson Icon"
-                      width={90}
-                      height={90}
-                      className="object-contain"
+                    <img
+                      src={resolveIconUrl(lesson.icon)}
+                      alt={lesson.title}
+                      className="w-[90px] h-[90px] object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = DEFAULT_ICON;
+                      }}
                     />
                   </div>
                 </div>

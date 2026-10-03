@@ -18,7 +18,8 @@ import {
   BarChart2,
   BookOpen,
   Award,
-  Download
+  Download,
+  ImageIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -73,6 +74,8 @@ import {
   listLessons,
   createLesson,
   deleteLesson,
+  replaceAllLessonIcons,
+  uploadLessonIcon,
   getAppBySlug,
   ProgressRecord,
   LessonSummary,
@@ -175,6 +178,18 @@ export default function AppAdminDashboard() {
     id: "", title: "", icon: "", sortOrder: 0, words: [], externalLinks: [],
   });
 
+  // Replace all icons
+  const DEFAULT_LESSON_ICON = "/icon/Logo.png";
+  const [replaceIconOpen, setReplaceIconOpen] = useState(false);
+  const [replaceIconUrl, setReplaceIconUrl] = useState(DEFAULT_LESSON_ICON);
+  const [replaceIconSaving, setReplaceIconSaving] = useState(false);
+  const [replaceIconError, setReplaceIconError] = useState("");
+  const [iconTab, setIconTab] = useState<"file" | "url">("file");
+  const [replaceIconFile, setReplaceIconFile] = useState<File | null>(null);
+  const [replaceIconPreview, setReplaceIconPreview] = useState<string>("");
+  const [replaceIconUploading, setReplaceIconUploading] = useState(false);
+  const iconFileInputRef = useRef<HTMLInputElement>(null);
+
   // Fetch App branding
   useEffect(() => {
     if (!appSlug) return;
@@ -242,6 +257,55 @@ export default function AppAdminDashboard() {
       setLessonsLoading(false);
     }
   }, []);
+
+  const resetReplaceIconDialog = () => {
+    setIconTab("file");
+    setReplaceIconFile(null);
+    setReplaceIconPreview("");
+    setReplaceIconUrl(DEFAULT_LESSON_ICON);
+    setReplaceIconError("");
+    if (iconFileInputRef.current) iconFileInputRef.current.value = "";
+  };
+
+  const handleReplaceAllIcons = async () => {
+    setReplaceIconError("");
+    setReplaceIconSaving(true);
+    try {
+      let iconToApply = DEFAULT_LESSON_ICON;
+
+      if (iconTab === "file") {
+        if (!replaceIconFile) {
+          setReplaceIconError("Please choose an image file.");
+          setReplaceIconSaving(false);
+          return;
+        }
+        // Step 1 — upload file → get hosted URL
+        setReplaceIconUploading(true);
+        const { icon_url } = await uploadLessonIcon(replaceIconFile);
+        setReplaceIconUploading(false);
+        // icon_url is a relative backend path e.g. "uploads/lesson-icons/xxx.png"
+        // Prepend BASE_URL so the stored value is an absolute URL renderable anywhere
+        iconToApply = `${BASE_URL}/${icon_url}`;
+      } else {
+        iconToApply = replaceIconUrl.trim() || DEFAULT_LESSON_ICON;
+      }
+
+      // Step 2 — bulk-apply URL to all lessons
+      const result = await replaceAllLessonIcons(iconToApply);
+      toast({
+        title: "Icons Updated",
+        description: `${result.updated} lesson${result.updated !== 1 ? "s" : ""} updated successfully.`,
+      });
+      setReplaceIconOpen(false);
+      resetReplaceIconDialog();
+      await fetchLessons();
+    } catch (err: any) {
+      setReplaceIconUploading(false);
+      setReplaceIconError(err.message ?? "Failed to update icons.");
+    } finally {
+      setReplaceIconSaving(false);
+    }
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -988,6 +1052,17 @@ export default function AppAdminDashboard() {
                   Import CSV
                 </Button>
                 <Button
+                  variant="outline"
+                  onClick={() => {
+                    resetReplaceIconDialog();
+                    setReplaceIconOpen(true);
+                  }}
+                  className="rounded-xl flex items-center gap-2 font-semibold text-xs sm:text-sm"
+                >
+                  <ImageIcon className="w-4 h-4 text-violet-500" />
+                  Replace All Icons
+                </Button>
+                <Button
                   onClick={() => {
                     setLessonError("");
                     setLessonForm({ id: "", title: "", icon: "", sortOrder: lessons.length + 1, words: [], externalLinks: [] });
@@ -1358,6 +1433,169 @@ export default function AppAdminDashboard() {
         onOpenChange={setBulkLessonOpen}
         onSuccess={fetchLessons}
       />
+
+      {/* ── Replace All Icons Dialog ── */}
+      <Dialog open={replaceIconOpen} onOpenChange={(open) => {
+        if (!open) resetReplaceIconDialog();
+        setReplaceIconOpen(open);
+      }}>
+        <DialogContent className="rounded-3xl sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold">Replace All Lesson Icons</DialogTitle>
+          </DialogHeader>
+
+          <div className="flex flex-col gap-4 py-2">
+            <p className="text-sm text-slate-500">
+              Choose an image to apply as the icon for{" "}
+              <strong>all {lessons.length} lessons</strong> in this app.
+            </p>
+
+            {/* ── Tab switcher ── */}
+            <div className="flex rounded-xl overflow-hidden border border-slate-200 p-0.5 bg-slate-50 gap-0.5">
+              <button
+                type="button"
+                onClick={() => { setIconTab("file"); setReplaceIconError(""); }}
+                className={`flex-1 flex items-center justify-center gap-2 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+                  iconTab === "file"
+                    ? "bg-white shadow text-slate-800"
+                    : "text-slate-400 hover:text-slate-600"
+                }`}
+              >
+                <Upload className="w-3.5 h-3.5" />
+                Upload File
+              </button>
+              <button
+                type="button"
+                onClick={() => { setIconTab("url"); setReplaceIconError(""); }}
+                className={`flex-1 flex items-center justify-center gap-2 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+                  iconTab === "url"
+                    ? "bg-white shadow text-slate-800"
+                    : "text-slate-400 hover:text-slate-600"
+                }`}
+              >
+                <ImageIcon className="w-3.5 h-3.5" />
+                Image URL
+              </button>
+            </div>
+
+            {/* ── File tab ── */}
+            {iconTab === "file" && (
+              <div className="flex flex-col gap-3">
+                <input
+                  ref={iconFileInputRef}
+                  type="file"
+                  accept="image/png,image/jpeg,image/gif,image/webp"
+                  className="hidden"
+                  onChange={(e) => {
+                    const f = e.target.files?.[0] ?? null;
+                    setReplaceIconFile(f);
+                    setReplaceIconError("");
+                    if (f) {
+                      const objectUrl = URL.createObjectURL(f);
+                      setReplaceIconPreview(objectUrl);
+                    } else {
+                      setReplaceIconPreview("");
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => iconFileInputRef.current?.click()}
+                  className="w-full border-2 border-dashed border-slate-200 rounded-2xl py-6 flex flex-col items-center gap-2 text-slate-400 hover:border-violet-400 hover:text-violet-500 transition-colors bg-slate-50"
+                >
+                  <Upload className="w-6 h-6" />
+                  <span className="text-sm font-semibold">
+                    {replaceIconFile ? replaceIconFile.name : "Click to choose image"}
+                  </span>
+                  <span className="text-xs">PNG, JPG, WEBP, GIF — max 5 MB</span>
+                </button>
+                {replaceIconFile && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setReplaceIconFile(null);
+                      setReplaceIconPreview("");
+                      if (iconFileInputRef.current) iconFileInputRef.current.value = "";
+                    }}
+                    className="text-xs text-slate-400 hover:text-rose-500 self-center"
+                  >
+                    ✕ Clear file
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* ── URL tab ── */}
+            {iconTab === "url" && (
+              <div className="flex flex-col gap-1.5">
+                <Label>Image URL</Label>
+                <Input
+                  placeholder="/icon/Logo.png"
+                  value={replaceIconUrl}
+                  onChange={(e) => { setReplaceIconUrl(e.target.value); setReplaceIconError(""); }}
+                  className="rounded-xl font-mono text-sm"
+                />
+                <p className="text-xs text-slate-400">
+                  Default:{" "}
+                  <code className="bg-slate-100 px-1 rounded">/icon/Logo.png</code>
+                  {" "}— leave blank to reset all to default.
+                </p>
+              </div>
+            )}
+
+            {/* ── Live Preview ── */}
+            <div className="flex flex-col items-center gap-2">
+              <Label className="text-xs text-slate-400">Preview</Label>
+              <div className="w-20 h-20 rounded-2xl border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden">
+                <img
+                  src={
+                    iconTab === "file"
+                      ? (replaceIconPreview || DEFAULT_LESSON_ICON)
+                      : (replaceIconUrl.trim() || DEFAULT_LESSON_ICON)
+                  }
+                  alt="Icon Preview"
+                  className="w-full h-full object-contain"
+                  onError={(e) => { (e.target as HTMLImageElement).src = DEFAULT_LESSON_ICON; }}
+                />
+              </div>
+              {iconTab === "file" && !replaceIconFile && (
+                <p className="text-xs text-slate-400 italic">No file selected — showing default</p>
+              )}
+              {iconTab === "url" && !replaceIconUrl.trim() && (
+                <p className="text-xs text-slate-400 italic">Blank → will use default (/icon/Logo.png)</p>
+              )}
+            </div>
+
+            {replaceIconError && (
+              <p className="text-sm text-rose-500 font-medium">{replaceIconError}</p>
+            )}
+          </div>
+
+          <DialogFooter className="gap-2">
+            <Button
+              variant="outline"
+              onClick={() => { resetReplaceIconDialog(); setReplaceIconOpen(false); }}
+              className="rounded-xl"
+              disabled={replaceIconSaving}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleReplaceAllIcons}
+              disabled={replaceIconSaving}
+              className="rounded-xl font-bold bg-violet-600 hover:bg-violet-700 text-white"
+            >
+              {replaceIconSaving ? <RefreshCw className="w-4 h-4 animate-spin mr-2" /> : null}
+              {replaceIconUploading
+                ? "Uploading..."
+                : replaceIconSaving
+                ? "Updating..."
+                : `Apply to All ${lessons.length} Lessons`}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
     </main>
   );
 }

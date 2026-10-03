@@ -331,6 +331,40 @@ export async function deleteLesson(id: string): Promise<void> {
   await apiFetch<{ message: string }>(`/api/lessons/${id}`, { method: "DELETE" });
 }
 
+export async function replaceAllLessonIcons(
+  icon: string
+): Promise<{ success: boolean; updated: number }> {
+  return apiFetch<{ success: boolean; updated: number }>(
+    "/api/lessons/icons/replace-all",
+    {
+      method: "PATCH",
+      body: JSON.stringify({ icon }),
+    }
+  );
+}
+
+export async function uploadLessonIcon(file: File): Promise<{ icon_url: string }> {
+  const formData = new FormData();
+  formData.append("icon", file);
+
+  const token = getToken();
+  const headers: Record<string, string> = {};
+  if (token) headers["Authorization"] = `Bearer ${token}`;
+
+  const res = await fetch(`${BASE_URL}/api/lessons/icons/upload`, {
+    method: "POST",
+    headers,
+    body: formData,
+  });
+
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error((body as any).error ?? `Icon upload failed (HTTP ${res.status})`);
+  }
+
+  return res.json();
+}
+
 export interface BulkLessonPayload {
   id: string;
   title: string;

@@ -1,8 +1,40 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer');
 const pool = require('../db');
 const { requireAuth, requireAdmin } = require('../middleware/auth');
 
 const router = express.Router();
+
+// ─── Lesson icon file upload (multer) ─────────────────────────────────────────
+const iconUploadDir = path.join(__dirname, '../../uploads/lesson-icons');
+if (!fs.existsSync(iconUploadDir)) {
+  fs.mkdirSync(iconUploadDir, { recursive: true });
+}
+
+const iconStorage = multer.diskStorage({
+  destination: (_req, _file, cb) => cb(null, iconUploadDir),
+  filename: (_req, file, cb) => {
+    const ext = (path.extname(file.originalname) || '.png').toLowerCase();
+    cb(null, `lesson-icon-${Date.now()}${ext}`);
+  },
+});
+
+const uploadIcon = multer({
+  storage: iconStorage,
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB
+  fileFilter: (_req, file, cb) => {
+    const allowedExts = /\.(png|jpe?g|gif|webp)$/i;
+    const allowedMimes = /^image\/(png|jpe?g|gif|webp|x-png)$/i;
+    const ext = path.extname(file.originalname).toLowerCase();
+    if (allowedExts.test(ext) || allowedMimes.test(file.mimetype || '')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid image format. Supported: PNG, JPG, JPEG, WEBP, GIF.'));
+    }
+  },
+});
 
 function mapLesson(row) {
   return {
@@ -289,4 +321,43 @@ router.delete('/:id', requireAdmin, async (req, res) => {
   }
 });
 
+// POST /api/lessons/icons/upload — upload an image file to use as lesson icon (admin)
+router.post('/icons/upload', requireAdmin, (req, res) => {
+  uploadIcon.single('icon')(req, res, (err) => {
+    if (err) {
+      if (err.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ error: 'File size exceeds the 5MB limit.' });
+      }
+      return res.status(400).json({ error: err.message || 'Failed to process image file.' });
+    }
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file provided.' });
+    }
+    const iconUrl = `uploads/lesson-icons/${req.file.filename}`;
+    return res.json({ success: true, icon_url: iconUrl });
+  });
+});
+
+// PATCH /api/lessons/icons/replace-all — bulk-set icon on every lesson in admin's app
+router.patch('/icons/replace-all', requireAdmin, async (req, res) => {
+  const { icon } = req.body;
+  const appId = req.user.appId;
+  if (!appId) return res.status(403).json({ error: 'No app context in token' });
+  if (typeof icon !== 'string' || !icon.trim()) {
+    return res.status(400).json({ error: 'icon (URL string) is required' });
+  }
+
+  try {
+    const [result] = await pool.execute(
+      'UPDATE lessons SET icon = ? WHERE app_id = ?',
+      [icon.trim(), appId]
+    );
+    return res.json({ success: true, updated: result.affectedRows });
+  } catch (err) {
+    console.error('Replace all icons error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;
+
