@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { ApiWordData as WordData, ApiLinkData as LinkData, LessonFull } from "@/lib/api";
@@ -15,6 +15,8 @@ import {
   Lock,
   Copy,
   Check,
+  FileText,
+  X as XIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { LearnModule } from "@/components/LearnModule";
@@ -411,9 +413,28 @@ export default function LessonClient({ id }: { id: string }) {
     }
   };
 
+  // ---- Description Modal State ----
+  const [descModalOpen, setDescModalOpen] = useState(false);
+  const [descModalContent, setDescModalContent] = useState<{ title: string; description: string } | null>(null);
+
+  const isValidUrl = (value: string): boolean => {
+    if (!value || !value.trim()) return false;
+    try {
+      const url = new URL(value.trim());
+      return url.protocol === "http:" || url.protocol === "https:";
+    } catch {
+      return false;
+    }
+  };
+
   const handleTrackLinkClick = (url: string) => {
     setP4LinksCount((prev) => prev + 1);
     window.open(url, "_blank");
+  };
+
+  const handleOpenDescription = (title: string, description: string) => {
+    setDescModalContent({ title, description });
+    setDescModalOpen(true);
   };
 
   // ---------------- MODULES ----------------
@@ -655,52 +676,79 @@ export default function LessonClient({ id }: { id: string }) {
 
                 <div className="grid gap-4 sm:gap-5 w-full max-w-2xl">
                   {lesson.externalLinks && lesson.externalLinks.length > 0 ? (
-                    lesson.externalLinks.map((link: LinkData, idx: number) => (
-                      <div
-                        key={idx}
-                        className="
-                        group bg-white
-                        border border-slate-200
-                        rounded-2xl sm:rounded-3xl
-                        p-4 sm:p-6
-                        shadow-md hover:shadow-xl
-                        transition-all duration-300
-                      "
-                      >
-                        <div className="flex flex-col gap-4">
-                          <div className="flex-1">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-violet-600 text-[10px] sm:text-xs font-black tracking-widest uppercase mb-3">
-                              Extra {idx + 1}
+                    lesson.externalLinks.map((link: LinkData, idx: number) => {
+                      const urlIsLink = isValidUrl(link.url);
+                      const hasContent = link.url && link.url.trim() !== "";
+                      return (
+                        <div
+                          key={idx}
+                          className="
+                          group bg-white
+                          border border-slate-200
+                          rounded-2xl sm:rounded-3xl
+                          p-4 sm:p-6
+                          shadow-md hover:shadow-xl
+                          transition-all duration-300
+                        "
+                        >
+                          <div className="flex flex-col gap-4">
+                            <div className="flex-1">
+                              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-violet-600 text-[10px] sm:text-xs font-black tracking-widest uppercase mb-3">
+                                Extra {idx + 1}
+                              </div>
+
+                              <p className="text-base sm:text-lg font-semibold text-slate-700 leading-relaxed break-words">
+                                {link.text}
+                              </p>
                             </div>
 
-                            <p className="text-base sm:text-lg font-semibold text-slate-700 leading-relaxed break-words">
-                              {link.text}
-                            </p>
-                          </div>
+                            {hasContent && urlIsLink && (
+                              <Button
+                                onClick={() => handleTrackLinkClick(link.url)}
+                                className="
+                                  w-full sm:w-auto
+                                  h-11 sm:h-12
+                                  px-5 sm:px-6
+                                  rounded-2xl
+                                  bg-gradient-to-r from-violet-600 to-purple-600
+                                  hover:opacity-90
+                                  text-white
+                                  font-black
+                                  text-sm sm:text-base
+                                  tracking-wide
+                                  shadow-lg
+                                "
+                              >
+                                Open Link
+                              </Button>
+                            )}
 
-                          {link.url && link.url.trim() !== "" && (
-                            <Button
-                              onClick={() => handleTrackLinkClick(link.url)}
-                              className="
-                                w-full sm:w-auto
-                                h-11 sm:h-12
-                                px-5 sm:px-6
-                                rounded-2xl
-                                bg-gradient-to-r from-violet-600 to-purple-600
-                                hover:opacity-90
-                                text-white
-                                font-black
-                                text-sm sm:text-base
-                                tracking-wide
-                                shadow-lg
-                              "
-                            >
-                              Open Link
-                            </Button>
-                          )}
+                            {hasContent && !urlIsLink && (
+                              <Button
+                                onClick={() => handleOpenDescription(link.text, link.url)}
+                                className="
+                                  w-full sm:w-auto
+                                  h-11 sm:h-12
+                                  px-5 sm:px-6
+                                  rounded-2xl
+                                  bg-gradient-to-r from-indigo-500 to-blue-600
+                                  hover:opacity-90
+                                  text-white
+                                  font-black
+                                  text-sm sm:text-base
+                                  tracking-wide
+                                  shadow-lg
+                                  flex items-center gap-2
+                                "
+                              >
+                                <FileText className="w-4 h-4" />
+                                Read Description
+                              </Button>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    ))
+                      );
+                    })
                   ) : (
                     <div className="bg-white border border-dashed border-slate-300 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center">
                       <p className="text-slate-400 text-base sm:text-lg italic">
@@ -813,6 +861,63 @@ export default function LessonClient({ id }: { id: string }) {
                 onClick={() => setActiveModule("learn")}
               >
                 HỌC TỪ VỰNG TRƯỚC
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* ---------------- DESCRIPTION MODAL ---------------- */}
+      {descModalOpen && descModalContent && (
+        <div
+          className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setDescModalOpen(false)}
+        >
+          <div
+            className="
+              w-full max-w-lg
+              bg-white
+              rounded-[2rem] sm:rounded-[2.5rem]
+              shadow-2xl
+              border border-indigo-100
+              max-h-[85vh]
+              flex flex-col
+              overflow-hidden
+            "
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 bg-gradient-to-r from-indigo-50 to-blue-50">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-black text-slate-800 truncate">
+                  {descModalContent.title}
+                </h3>
+              </div>
+              <button
+                onClick={() => setDescModalOpen(false)}
+                className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 transition-colors shrink-0 ml-3"
+                aria-label="Close"
+              >
+                <XIcon className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="flex-1 overflow-y-auto px-6 py-6">
+              <p className="text-slate-700 text-base leading-relaxed whitespace-pre-wrap">
+                {descModalContent.description}
+              </p>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/70 flex justify-end">
+              <Button
+                onClick={() => setDescModalOpen(false)}
+                className="rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6"
+              >
+                Close
               </Button>
             </div>
           </div>
