@@ -83,6 +83,10 @@ export default function LessonClient({ id }: { id: string }) {
 
   const [isDataLoaded, setIsDataLoaded] = useState(false);
 
+  // ---- Description Modal State ----
+  const [descModalOpen, setDescModalOpen] = useState(false);
+  const [descModalContent, setDescModalContent] = useState<{ title: string; description: string } | null>(null);
+
   const isProgressLoadedRef = useRef(false);
 
   // ---------------- AUTH ----------------
@@ -412,10 +416,6 @@ export default function LessonClient({ id }: { id: string }) {
       }
     }
   };
-
-  // ---- Description Modal State ----
-  const [descModalOpen, setDescModalOpen] = useState(false);
-  const [descModalContent, setDescModalContent] = useState<{ title: string; description: string } | null>(null);
 
   const isValidUrl = (value: string): boolean => {
     if (!value || !value.trim()) return false;
