@@ -266,6 +266,9 @@ export function parseLessonsFromRawRows(rawRows: string[][]): ParseLessonCSVResu
     }
 
     // Append Link if present
+    // Note: rawLinkUrl can be a URL (https://...) OR a plain-text description.
+    // Both cases are stored in the `url` field. The frontend determines at render
+    // time whether to open as a link or display as a modal description.
     if (rawLinkUrl || rawLinkTitle) {
       lesson.externalLinks = lesson.externalLinks || [];
       lesson.externalLinks.push({
@@ -299,6 +302,10 @@ export function parseLessonsFromRawRows(rawRows: string[][]): ParseLessonCSVResu
 /**
  * Generates an exemplary CSV string with comments and headers
  * ready to be downloaded as a template.
+ *
+ * The `link_url` column can hold either:
+ *   - A full URL (https://...) → rendered as an "Open Link" button
+ *   - Plain description text   → rendered as a "Read Description" modal
  */
 export function generateSampleLessonCSV(): string {
   return [
@@ -307,14 +314,14 @@ export function generateSampleLessonCSV(): string {
     'lesson-1,Animals & Pets,1,Bird,https://images.unsplash.com/photo-1444464666168-49d633b86797?w=400,/bɜːrd/,,',
     'lesson-1,Animals & Pets,1,Pig,https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400,/pɪɡ/,,',
     'lesson-1,Animals & Pets,1,Penguin,https://images.unsplash.com/photo-1598439210625-5067c578f3f6?w=400,/ˈpɛŋɡwɪn/,,',
-    'lesson-1,Animals & Pets,1,Monkey,https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=400,/ˈmʌŋki/,,',
+    'lesson-1,Animals & Pets,1,Monkey,https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=400,/ˈmʌŋki/,"Extra Notes","Bears are large mammals found in forests and mountains. They hibernate during winter and eat fish, berries, and honey."',
     'lesson-2,Vehicles & Transport,2,Car,https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400,/kɑːr/,Transport Song,https://www.youtube.com/watch?v=example-transport',
     'lesson-2,Vehicles & Transport,2,Bus,https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=400,/bʌs/,,',
     'lesson-2,Vehicles & Transport,2,Train,https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400,/treɪn/,,',
     'lesson-2,Vehicles & Transport,2,Bicycle,https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400,/ˈbaɪsɪkəl/,,',
     'lesson-3,Fruits & Food,3,Apple,https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400,/ˈæp.əl/,Fruit Song,https://www.youtube.com/watch?v=example-fruit',
     'lesson-3,Fruits & Food,3,Banana,https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400,/bəˈnɑː.nə/,,',
-    'lesson-3,Fruits & Food,3,Orange,https://images.unsplash.com/photo-1547514701-42782101795e?w=400,/ˈɒr.ɪndʒ/,,',
+    'lesson-3,Fruits & Food,3,Orange,https://images.unsplash.com/photo-1547514701-42782101795e?w=400,/ˈɒr.ɪndʒ/,,"Oranges are citrus fruits rich in Vitamin C. They are commonly grown in warm climates and used in juices, desserts, and salads."',
   ].join("\n");
 }
 

@@ -466,17 +466,32 @@ export default function ImportLessonsDialog({
                                   External Resources ({linksCount})
                                 </p>
                                 <div className="space-y-1">
-                                  {lesson.externalLinks?.map((l, lIdx) => (
+                                  {lesson.externalLinks?.map((l, lIdx) => {
+                                    const isLink = (() => {
+                                      try {
+                                        const u = new URL(l.url);
+                                        return u.protocol === "http:" || u.protocol === "https:";
+                                      } catch { return false; }
+                                    })();
+                                    return (
                                     <div
                                       key={lIdx}
                                       className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100 text-xs"
                                     >
                                       <span className="font-semibold text-slate-700 truncate">{l.text}</span>
-                                      <span className="text-slate-400 font-mono text-[11px] truncate max-w-[200px]">
-                                        {l.url}
-                                      </span>
+                                      {isLink ? (
+                                        <span className="text-slate-400 font-mono text-[11px] truncate max-w-[200px]">
+                                          {l.url}
+                                        </span>
+                                      ) : (
+                                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 font-semibold text-[11px] shrink-0">
+                                          <FileText className="w-3 h-3" />
+                                          description
+                                        </span>
+                                      )}
                                     </div>
-                                  ))}
+                                    );
+                                  })}
                                 </div>
                               </div>
                             )}
