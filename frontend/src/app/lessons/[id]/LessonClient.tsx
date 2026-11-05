@@ -43,6 +43,11 @@ export default function LessonClient({ id }: { id: string }) {
   const [user, setUser] = useState<StoredUser | null>(null);
   const [authChecking, setAuthChecking] = useState(true);
   const [username, setUsername] = useState("");
+
+  // Lesson home for the signed-in user ("/" is the login page).
+  const homeHref = user?.appSlug
+    ? `/${user.appSlug}${user.role === "admin" ? "/admin" : ""}`
+    : "/";
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   // Login form states (for direct or unauthenticated lesson entry)
@@ -366,7 +371,7 @@ export default function LessonClient({ id }: { id: string }) {
             Lesson Not Found
           </h2>
           <p className="text-slate-500 mb-6">This lesson may have been removed or you do not have permission to view it.</p>
-          <Link href="/">
+          <Link href={homeHref}>
             <Button variant="outline" className="rounded-xl font-bold">
               <Home className="w-4 h-4 mr-2" /> Back to Lessons
             </Button>
@@ -477,7 +482,7 @@ export default function LessonClient({ id }: { id: string }) {
         {/* ---------------- TOP BAR ---------------- */}
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6 md:mb-8">
           <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
-            <Link href="/">
+            <Link href={homeHref}>
               <Button
                 variant="outline"
                 size="icon"
