@@ -271,6 +271,21 @@ export async function saveUserProgress(payload: {
   });
 }
 
+// ─── Speech usage (STT metering) ───────────────────────────────────────────────
+
+export function recordSpeechUsage(payload: {
+  wordId?:    string;
+  durationMs: number;
+  hasResult:  boolean;
+  errorCode?: string;
+}): void {
+  // Fire-and-forget: metering must never affect the speaking flow
+  apiFetch("/api/speech-usage", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  }, true).catch(() => {});
+}
+
 // ─── Lessons ───────────────────────────────────────────────────────────────────
 
 export interface ApiWordData {

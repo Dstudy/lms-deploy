@@ -22,3 +22,15 @@ jobs:
             git pull origin production
             docker compose down
             docker compose up -d --build
+
+            # Apply schema.sql (idempotent: CREATE ... IF NOT EXISTS) so new tables reach
+            # existing databases. The password comes from the db container's own env.
+            echo "Waiting for MySQL..."
+            for i in $(seq 1 30); do
+              if docker compose exec -T db sh -c 'mysqladmin ping -h localhost -uroot -p"$MYSQL_ROOT_PASSWORD" --silent'; then
+                break
+              fi
+              sleep 2
+            done
+            docker compose exec -T db sh -c 'mysql -uroot -p"$MYSQL_ROOT_PASSWORD"' < backend/src/schema.sql
+            echo "Database schema applied."
