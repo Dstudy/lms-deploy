@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Volume2,
   Mic,
@@ -13,6 +13,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { WordData } from "@/lib/lessons-data";
 import { playSpeech } from "@/lib/speech";
+import { recordSpeechUsage } from "@/lib/api";
+import {
+  SUCCESS_STARS,
+  diffTarget,
+  scoreAlternatives,
+} from "@/lib/speech-scoring";
+import { useSpeechRecognition } from "@/hooks/use-speech-recognition";
 
 interface SpeakModuleProps {
   words: WordData[];
@@ -22,26 +29,38 @@ interface SpeakModuleProps {
   savedProgressStars?: Record<string, number>;
 }
 
-interface WordProgress {
-  text: string;
+/** Progress made in this session, keyed by word id. */
+interface Attempt {
   accuracy: number;
   stars: number;
   attempts: number;
 }
 
-const NUMBER_WORDS_MAP: Record<string, string> = {
-  "0": "zero",
-  "1": "one",
-  "2": "two",
-  "3": "three",
-  "4": "four",
-  "5": "five",
-  "6": "six",
-  "7": "seven",
-  "8": "eight",
-  "9": "nine",
-  "10": "ten",
-};
+interface Feedback {
+  success: boolean;
+  bestMatch: string;
+  accuracy: number;
+  stars: number;
+}
+
+const StarRow = ({
+  stars,
+  className,
+  filled = "fill-amber-400 text-amber-400",
+}: {
+  stars: number;
+  className: string;
+  filled?: string;
+}) => (
+  <>
+    {[...Array(5)].map((_, i) => (
+      <Star
+        key={i}
+        className={`${className} ${i < stars ? filled : "text-slate-200"}`}
+      />
+    ))}
+  </>
+);
 
 const SpeakModule: React.FC<SpeakModuleProps> = ({
   words,
@@ -50,313 +69,105 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
   onUpdateStars,
   savedProgressStars = {},
 }) => {
-  const [isRecording, setIsRecording] = useState(false);
-  const [feedback, setFeedback] = useState<{
-    msg: string;
-    type: "success" | "error";
-    bestMatch: string;
-    accuracy: number;
-  } | null>(null);
+  const [session, setSession] = useState<Record<string, Attempt>>({});
+  const [feedback, setFeedback] = useState<Feedback | null>(null);
+
+  // Word the current recognition session was started for (metering outlives navigation).
+  const sessionWordIdRef = useRef<string | undefined>(undefined);
+
+  const { supported, status, error, start, stop, abort, clearError } =
+    useSpeechRecognition({
+      lang: "en-US",
+      maxAlternatives: 5,
+      onSession: (info) =>
+        recordSpeechUsage({ wordId: sessionWordIdRef.current, ...info }),
+    });
+  const isRecording = status === "listening";
 
   const isFinished = index >= words.length;
   const current = words[index];
 
-  // Helper helper to generate progress map structure
-  const generateInitialProgress = (starsObj: Record<string, number>) => {
-    console.log("Generating initial progress with starsObj:", starsObj);
-    const initialProgress: Record<number, WordProgress> = {};
-    words.forEach((word, i) => {
-      const savedStars = starsObj[word.id] || 0;
-      initialProgress[i] = {
-        text: word.text,
-        accuracy:
-          savedStars === 5
-            ? 95
-            : savedStars === 4
-              ? 80
-              : savedStars === 3
-                ? 65
-                : savedStars === 2
-                  ? 45
-                  : savedStars === 1
-                    ? 20
-                    : 0,
-        stars: savedStars,
-        attempts: savedStars > 0 ? 1 : 0,
-      };
-    });
-    return initialProgress;
-  };
+  // Always-fresh view of the word being practised, so late recognizer callbacks can't
+  // score against a word the user has already moved away from.
+  const currentRef = useRef<WordData | undefined>(current);
+  currentRef.current = current;
 
-  // Initialize local progress cleanly
-  const [progress, setProgress] = useState<Record<number, WordProgress>>(() =>
-    generateInitialProgress(savedProgressStars),
+  // Best of what the server already knew and what happened this session.
+  const bestStars = useCallback(
+    (id: string) =>
+      Math.max(savedProgressStars[id] || 0, session[id]?.stars || 0),
+    [savedProgressStars, session],
   );
 
-  // ONLY sync from parent on initial load when local state is entirely unpopulated
+  // Leaving a word cancels recognition and clears its feedback.
   useEffect(() => {
-    if (Object.keys(savedProgressStars).length > 0) {
-      setProgress((prev) => {
-        // If we already have localized session stars accumulated, don't overwrite them
-        const hasSessionProgress = Object.values(prev).some((p) => p.stars > 0);
-        if (hasSessionProgress) return prev;
-
-        return generateInitialProgress(savedProgressStars);
-      });
-    }
-  }, [savedProgressStars]);
-
-  const recognitionRef = useRef<any>(null);
-
-  useEffect(() => {
-    return () => {
-      if (recognitionRef.current) {
-        recognitionRef.current.abort();
-      }
-    };
-  }, [index]);
-
-  const calculateStars = (acc: number) => {
-    if (acc >= 90) return 5;
-    if (acc >= 75) return 4;
-    if (acc >= 60) return 3;
-    if (acc >= 40) return 2;
-    if (acc > 0) return 1;
-    return 0;
-  };
-
-  const handleSpeech = async () => {
-    const SpeechRecognition =
-      (window as any).SpeechRecognition ||
-      (window as any).webkitSpeechRecognition;
-
-    if (!SpeechRecognition) {
-      setFeedback({
-        msg: "Speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.",
-        type: "error",
-        bestMatch: "Not Supported",
-        accuracy: 0,
-      });
-      return;
-    }
-
-    if (isRecording && recognitionRef.current) {
-      recognitionRef.current.stop();
-      return;
-    }
-
-    // Check Secure Context (HTTPS or localhost)
-    if (typeof window !== "undefined" && !window.isSecureContext && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
-      setFeedback({
-        msg: "Microphone access is blocked because the site is not using HTTPS. Browsers require HTTPS for microphone and speech features.",
-        type: "error",
-        bestMatch: "HTTPS Required",
-        accuracy: 0,
-      });
-      return;
-    }
-
-    // Explicitly check/request microphone permission via getUserMedia first
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        stream.getTracks().forEach((track) => track.stop());
-      } catch (err: any) {
-        console.error("Microphone permission error:", err);
-        if (
-          err.name === "NotAllowedError" ||
-          err.name === "PermissionDeniedError"
-        ) {
-          setFeedback({
-            msg: "Microphone permission is blocked in your browser. Click the lock/settings icon in the address bar to allow Microphone access.",
-            type: "error",
-            bestMatch: "Mic Blocked",
-            accuracy: 0,
-          });
-          return;
-        } else if (
-          err.name === "NotFoundError" ||
-          err.name === "DevicesNotFoundError"
-        ) {
-          setFeedback({
-            msg: "No microphone detected. Please plug in or enable your microphone.",
-            type: "error",
-            bestMatch: "No Microphone",
-            accuracy: 0,
-          });
-          return;
-        } else {
-          setFeedback({
-            msg: `Microphone access error: ${err.message || err.name}`,
-            type: "error",
-            bestMatch: "Mic Error",
-            accuracy: 0,
-          });
-          return;
-        }
-      }
-    } else if (!navigator.mediaDevices) {
-      setFeedback({
-        msg: "Microphone API (navigator.mediaDevices) is not available. Please access via HTTPS or use a supported browser like Chrome.",
-        type: "error",
-        bestMatch: "API Unavailable",
-        accuracy: 0,
-      });
-      return;
-    }
-
-    const recognition = new SpeechRecognition();
-    recognitionRef.current = recognition;
-
-    recognition.lang = "en-US";
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 5;
-
-    recognition.onstart = () => setIsRecording(true);
-
-    recognition.onresult = (e: any) => {
-      const results: string[] = Array.from(e.results[0]).map((r: any) => {
-        let text = r.transcript.toLowerCase().trim();
-        text = text.replace(/^[.\s]+|[.\s]+$/g, "");
-        if (NUMBER_WORDS_MAP[text]) text = NUMBER_WORDS_MAP[text];
-        return text;
-      });
-
-      if (!current) return;
-
-      const target = current.text.toLowerCase().trim();
-      const cleanedTarget = target.replace(/[^a-z0-9]/g, "");
-
-      let bestMatch = results[0] || "";
-      let maxAccuracy = 0;
-
-      results.forEach((r) => {
-        const cleanedResult = r.replace(/[^a-z0-9]/g, "");
-        const maxLen = Math.max(cleanedResult.length, cleanedTarget.length);
-        if (maxLen === 0) return;
-
-        let matches = 0;
-        for (
-          let i = 0;
-          i < Math.min(cleanedResult.length, cleanedTarget.length);
-          i++
-        ) {
-          if (cleanedResult[i] === cleanedTarget[i]) matches++;
-        }
-        const score = matches / maxLen;
-
-        if (score > maxAccuracy) {
-          maxAccuracy = score;
-          bestMatch = r;
-        }
-      });
-
-      const accPercent = Math.round(maxAccuracy * 100);
-      const isSuccess = accPercent > 70;
-
-      setFeedback({
-        msg: isSuccess ? "Amazing! 🌟" : `Try again! 💪`,
-        type: isSuccess ? "success" : "error",
-        bestMatch: bestMatch,
-        accuracy: accPercent,
-      });
-
-      const calculatedNewStars = calculateStars(accPercent);
-
-      // Look at our actual current local state for safety instead of parent sync
-      const currentLocalStars = progress[index]?.stars || 0;
-      const ultimateBestStars = Math.max(calculatedNewStars, currentLocalStars);
-
-      setProgress((prev) => ({
-        ...prev,
-        [index]: {
-          text: current.text,
-          accuracy: Math.max(accPercent, prev[index]?.accuracy || 0),
-          stars: ultimateBestStars,
-          attempts: (prev[index]?.attempts || 0) + 1,
-        },
-      }));
-
-      if (onUpdateStars) {
-        onUpdateStars(current.id, calculatedNewStars);
-      }
-    };
-
-    recognition.onerror = (event: any) => {
-      setIsRecording(false);
-      const error = event.error;
-      if (error === "not-allowed" || error === "service-not-allowed") {
-        setFeedback({
-          msg: "Microphone access blocked. Please allow microphone access in your browser/site settings.",
-          type: "error",
-          bestMatch: "Mic Blocked",
-          accuracy: 0,
-        });
-      } else if (error === "no-speech") {
-        setFeedback({
-          msg: "No speech detected. Please speak clearly into your microphone.",
-          type: "error",
-          bestMatch: "No Speech Detected",
-          accuracy: 0,
-        });
-      } else if (error === "audio-capture") {
-        setFeedback({
-          msg: "No microphone detected. Please check your audio input device.",
-          type: "error",
-          bestMatch: "No Mic Found",
-          accuracy: 0,
-        });
-      } else if (error === "network") {
-        setFeedback({
-          msg: "Network error connecting to speech recognition service.",
-          type: "error",
-          bestMatch: "Network Error",
-          accuracy: 0,
-        });
-      } else if (error !== "aborted") {
-        setFeedback({
-          msg: `Speech recognition error: ${error}`,
-          type: "error",
-          bestMatch: error,
-          accuracy: 0,
-        });
-      }
-    };
-
-    recognition.onend = () => setIsRecording(false);
-
-    try {
-      recognition.start();
-    } catch (err) {
-      console.error("Failed to start speech recognition:", err);
-      setIsRecording(false);
-    }
-  };
-
-  const handleNext = () => {
-    if (recognitionRef.current) recognitionRef.current.abort();
+    abort();
+    clearError();
     setFeedback(null);
-    setIndex((prev) => prev + 1);
+  }, [index, abort, clearError]);
+
+  const submitAttempt = useCallback(
+    (alternatives: string[], wordId: string) => {
+      const word = currentRef.current;
+      if (!word || word.id !== wordId) return;
+
+      const result = scoreAlternatives(alternatives, word.text);
+      const success = result.stars >= SUCCESS_STARS;
+
+      setFeedback({ success, ...result });
+      setSession((prev) => {
+        const old = prev[word.id];
+        return {
+          ...prev,
+          [word.id]: {
+            accuracy: Math.max(result.accuracy, old?.accuracy || 0),
+            stars: Math.max(result.stars, old?.stars || 0),
+            attempts: (old?.attempts || 0) + 1,
+          },
+        };
+      });
+
+      // Only ever report the best result, so a bad retry can't lower a saved score.
+      onUpdateStars?.(word.id, Math.max(result.stars, bestStars(word.id)));
+    },
+    [onUpdateStars, bestStars],
+  );
+
+  const handleMic = () => {
+    if (!current) return;
+    if (isRecording) {
+      stop();
+      return;
+    }
+    setFeedback(null);
+    const wordId = current.id;
+    sessionWordIdRef.current = wordId;
+    start((alternatives) => submitAttempt(alternatives, wordId));
   };
 
-  const handlePrev = () => {
-    if (recognitionRef.current) recognitionRef.current.abort();
-    if (index > 0) {
-      setFeedback(null);
-      setIndex(index - 1);
-    }
+  const handleNext = () => setIndex((prev) => prev + 1);
+  const handlePrev = () => index > 0 && setIndex(index - 1);
+
+  const handleRestart = () => {
+    abort();
+    setFeedback(null);
+    setIndex(0);
   };
 
   const playAudio = () => {
-    if (!current) return;
-    playSpeech(current.text, { lang: "en-US", rate: 0.85 });
+    if (current) playSpeech(current.text, { lang: "en-US", rate: 0.85 });
   };
 
-  const handleRestart = () => {
-    setIndex(0);
-    setFeedback(null);
-  };
+  const attemptedCount = useMemo(
+    () => words.filter((w) => bestStars(w.id) > 0).length,
+    [words, bestStars],
+  );
+
+  const diff = useMemo(
+    () =>
+      feedback && current ? diffTarget(feedback.bestMatch, current.text) : [],
+    [feedback, current],
+  );
 
   if (isFinished) {
     return (
@@ -374,24 +185,19 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
               </tr>
             </thead>
             <tbody>
-              {words.map((word, i) => (
-                <tr key={i} className="border-t border-slate-50">
+              {words.map((word) => (
+                <tr key={word.id} className="border-t border-slate-50">
                   <td className="p-4 font-bold text-slate-700">{word.text}</td>
                   <td className="p-4 font-medium text-slate-500">
-                    {progress[i]?.accuracy || 0}%
+                    {session[word.id] ? `${session[word.id].accuracy}%` : "—"}
                   </td>
                   <td className="p-4">
                     <div className="flex gap-1">
-                      {[...Array(5)].map((_, s) => (
-                        <Star
-                          key={s}
-                          className={`w-3 h-3 md:w-4 md:h-4 ${
-                            s < (progress[i]?.stars || 0)
-                              ? "fill-yellow-400 text-yellow-400"
-                              : "text-slate-200"
-                          }`}
-                        />
-                      ))}
+                      <StarRow
+                        stars={bestStars(word.id)}
+                        className="w-3 h-3 md:w-4 md:h-4"
+                        filled="fill-yellow-400 text-yellow-400"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -411,20 +217,18 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
 
   if (!current) return null;
 
+  const isLast = index === words.length - 1;
+  const statusLabel = isRecording
+    ? "Listening..."
+    : supported
+      ? "Tap To Speak"
+      : "Speech recognition not supported in this browser";
+
   return (
     <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-4 md:py-6">
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-4 md:gap-6 items-start">
         {/* Main Card */}
-        <div
-          className="
-        relative overflow-hidden
-        rounded-[1.5rem] md:rounded-[2rem]
-        border border-slate-200
-        bg-white
-        shadow-xl
-      "
-        >
-          {/* Top Accent */}
+        <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] border border-slate-200 bg-white shadow-xl">
           <div className="absolute inset-x-0 top-0 h-1.5 md:h-2 bg-primary" />
 
           {/* Header */}
@@ -433,69 +237,33 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
               <p className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-slate-400">
                 Speaking Practice
               </p>
-
               <h2 className="text-lg sm:text-xl md:text-2xl font-black text-slate-800">
                 Word {index + 1} / {words.length}
               </h2>
             </div>
 
-            {/* Stars */}
             <div className="flex items-center gap-1 bg-amber-50 border border-amber-100 rounded-full px-3 py-1.5 self-start sm:self-auto">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`w-4 h-4 transition-colors ${
-                    i < (progress[index]?.stars || 0)
-                      ? "fill-amber-400 text-amber-400"
-                      : "text-slate-200"
-                  }`}
-                />
-              ))}
+              <StarRow
+                stars={bestStars(current.id)}
+                className="w-4 h-4 transition-colors"
+              />
             </div>
           </div>
 
           {/* Image */}
           <div className="px-4 md:px-6 pt-2">
-            <div
-              className="
-            relative overflow-hidden
-            rounded-[1.25rem] md:rounded-[1.5rem]
-            border border-slate-100
-            bg-gradient-to-br from-slate-50 to-slate-100
-            flex items-center justify-center
-            min-h-[220px]
-            sm:min-h-[260px]
-            md:min-h-[360px]
-            p-4
-          "
-            >
+            <div className="relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] border border-slate-100 bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center min-h-[220px] sm:min-h-[260px] md:min-h-[360px] p-4">
               <img
                 src={current.image}
                 alt={current.text}
-                className="
-              max-h-[200px]
-              sm:max-h-[240px]
-              md:max-h-[320px]
-              w-full
-              object-contain
-              transition-transform duration-300
-              group-hover:scale-105
-            "
+                className="max-h-[200px] sm:max-h-[240px] md:max-h-[320px] w-full object-contain"
               />
             </div>
           </div>
 
-          {/* Word Section */}
+          {/* Word */}
           <div className="px-4 md:px-6 pt-5 md:pt-6 text-center">
-            <h1
-              className="
-            text-3xl sm:text-4xl md:text-6xl
-            font-black
-            tracking-tight
-            text-slate-900
-            break-words
-          "
-            >
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight text-slate-900 break-words">
               {current.text}
             </h1>
 
@@ -508,16 +276,27 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
                 <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slate-400 font-bold mb-1">
                   You said
                 </p>
-
                 <p
                   className={`text-xl sm:text-2xl md:text-3xl font-black break-words ${
-                    feedback.type === "success"
-                      ? "text-green-500"
-                      : "text-orange-500"
+                    feedback.success ? "text-green-500" : "text-orange-500"
                   }`}
                 >
-                  "{feedback.bestMatch}"
+                  &ldquo;{feedback.bestMatch}&rdquo;
                 </p>
+                {!feedback.success && (
+                  <p className="mt-2 text-lg font-bold tracking-wide break-words">
+                    {diff.map((part, i) => (
+                      <span
+                        key={i}
+                        className={
+                          part.ok ? "text-slate-700" : "text-red-500 underline"
+                        }
+                      >
+                        {part.char}
+                      </span>
+                    ))}
+                  </p>
+                )}
               </div>
             )}
           </div>
@@ -525,41 +304,25 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
           {/* Controls */}
           <div className="px-4 md:px-6 py-6 md:py-8">
             <div className="flex items-center justify-center gap-3 sm:gap-5">
-              {/* Speaker */}
               <button
+                type="button"
                 onClick={playAudio}
-                className="
-              w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20
-              rounded-2xl
-              bg-slate-100
-              hover:bg-slate-200
-              flex items-center justify-center
-              transition-all duration-200
-              active:scale-95
-              shrink-0
-            "
+                aria-label="Listen to the word"
+                className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-all duration-200 active:scale-95 shrink-0"
               >
                 <Volume2 className="w-6 h-6 md:w-8 md:h-8 text-slate-700" />
               </button>
 
-              {/* Mic */}
               <button
-                onClick={handleSpeech}
-                className={`
-              relative
-              w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28
-              rounded-full
-              flex items-center justify-center
-              shadow-xl
-              transition-all duration-300
-              active:scale-95
-              shrink-0
-              ${
-                isRecording
-                  ? "bg-red-500 ring-[8px] md:ring-[10px] ring-red-100 animate-pulse"
-                  : "bg-primary hover:scale-105"
-              }
-            `}
+                type="button"
+                onClick={handleMic}
+                disabled={!supported}
+                aria-label={isRecording ? "Stop recording" : "Start recording"}
+                className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 active:scale-95 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed ${
+                  isRecording
+                    ? "bg-red-500 ring-[8px] md:ring-[10px] ring-red-100 animate-pulse"
+                    : "bg-primary hover:scale-105"
+                }`}
               >
                 {isRecording ? (
                   <Square className="w-8 h-8 md:w-10 md:h-10 text-white fill-current" />
@@ -569,43 +332,43 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
               </button>
             </div>
 
-            {/* Status */}
             <div className="mt-5 text-center">
               <p
                 className={`text-xs sm:text-sm font-bold tracking-[0.15em] uppercase ${
                   isRecording ? "text-red-500" : "text-slate-300"
                 }`}
               >
-                {isRecording ? "Listening..." : "Tap To Speak"}
+                {statusLabel}
               </p>
             </div>
           </div>
 
-          {/* Footer Nav */}
-          <div
-            className="
-          border-t border-slate-100
-          px-4 md:px-6 py-4 md:py-5
-        "
-          >
-            {/* Feedback */}
-            {feedback && (
+          {/* Footer */}
+          <div className="border-t border-slate-100 px-4 md:px-6 py-4 md:py-5">
+            {error && (
+              <div role="alert" className="flex justify-center mb-4">
+                <div className="w-full sm:w-auto max-w-md px-4 py-3 rounded-2xl border border-red-200 bg-red-50 text-red-700 font-bold text-sm text-center">
+                  <div className="text-xs uppercase tracking-wider opacity-80">
+                    {error.title}
+                  </div>
+                  {error.message}
+                </div>
+              </div>
+            )}
+
+            {feedback && !error && (
               <div className="flex justify-center mb-4">
                 <div
-                  className={`
-                w-full sm:w-auto
-                max-w-md
-                px-4 py-3 rounded-2xl
-                border font-bold text-sm text-center
-                ${
-                  feedback.type === "success"
-                    ? "bg-green-50 border-green-200 text-green-700"
-                    : "bg-orange-50 border-orange-200 text-orange-700"
-                }
-              `}
+                  className={`w-full sm:w-auto max-w-md px-4 py-3 rounded-2xl border font-bold text-sm text-center ${
+                    feedback.success
+                      ? "bg-green-50 border-green-200 text-green-700"
+                      : "bg-orange-50 border-orange-200 text-orange-700"
+                  }`}
                 >
-                  {feedback.msg}
-
+                  {feedback.success ? "Amazing! 🌟" : "Try again! 💪"}
+                  <div className="flex justify-center gap-0.5 mt-1">
+                    <StarRow stars={feedback.stars} className="w-4 h-4" />
+                  </div>
                   <div className="text-[11px] opacity-70 mt-1">
                     Accuracy: {feedback.accuracy}%
                   </div>
@@ -613,20 +376,12 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
               </div>
             )}
 
-            {/* Buttons */}
             <div className="flex items-center justify-between gap-3">
               <Button
                 variant="outline"
                 onClick={handlePrev}
                 disabled={index === 0}
-                className="
-              h-11 md:h-12
-              px-3 sm:px-5
-              rounded-xl
-              border-slate-200
-              font-bold
-              flex-1 sm:flex-none
-            "
+                className="h-11 md:h-12 px-3 sm:px-5 rounded-xl border-slate-200 font-bold flex-1 sm:flex-none"
               >
                 <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 mr-1" />
                 <span className="hidden sm:inline">Prev</span>
@@ -634,21 +389,12 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
 
               <Button
                 onClick={handleNext}
-                className={`
-              h-11 md:h-12
-              px-3 sm:px-5
-              rounded-xl
-              font-bold
-              flex-1 sm:flex-none
-              ${
-                index === words.length - 1
-                  ? "bg-green-500 hover:bg-green-600"
-                  : ""
-              }
-            `}
-                variant={index === words.length - 1 ? "default" : "outline"}
+                className={`h-11 md:h-12 px-3 sm:px-5 rounded-xl font-bold flex-1 sm:flex-none ${
+                  isLast ? "bg-green-500 hover:bg-green-600" : ""
+                }`}
+                variant={isLast ? "default" : "outline"}
               >
-                {index === words.length - 1 ? "Finish" : "Next"}
+                {isLast ? "Finish" : "Next"}
                 <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
               </Button>
             </div>
@@ -656,97 +402,69 @@ const SpeakModule: React.FC<SpeakModuleProps> = ({
         </div>
 
         {/* Progress Sidebar */}
-        <div
-          className="
-        rounded-[1.5rem] md:rounded-[2rem]
-        border border-slate-200
-        bg-white
-        shadow-lg
-        p-4 md:p-5
-        xl:sticky xl:top-6
-        order-last xl:order-last
-      "
-        >
+        <div className="rounded-[1.5rem] md:rounded-[2rem] border border-slate-200 bg-white shadow-lg p-4 md:p-5 xl:sticky xl:top-6">
           <div className="mb-5">
             <p className="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">
-              Progress
+              Practised
             </p>
-
             <h3 className="text-xl md:text-2xl font-black text-slate-800 mt-1">
-              {Math.round(((index + 1) / words.length) * 100)}%
+              {attemptedCount} / {words.length}
             </h3>
           </div>
 
-          {/* Progress Bar */}
           <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-6">
             <div
               className="h-full bg-primary rounded-full transition-all duration-500"
-              style={{
-                width: `${((index + 1) / words.length) * 100}%`,
-              }}
+              style={{ width: `${(attemptedCount / words.length) * 100}%` }}
             />
           </div>
 
-          {/* Word List */}
           <div className="space-y-2 max-h-[260px] md:max-h-[420px] overflow-y-auto pr-1">
             {words.map((word, i) => {
-              const stars = progress[i]?.stars || 0;
               const active = i === index;
-
+              const attempt = session[word.id];
               return (
-                <div
+                <button
+                  type="button"
                   key={word.id}
-                  className={`
-                flex items-center justify-between
-                rounded-xl
-                px-3 py-3
-                border transition-all gap-3
-                ${
-                  active ? "bg-primary/5 border-primary/30" : "border-slate-100"
-                }
-              `}
+                  onClick={() => setIndex(i)}
+                  className={`w-full text-left flex items-center justify-between rounded-xl px-3 py-3 border transition-all gap-3 ${
+                    active
+                      ? "bg-primary/5 border-primary/30"
+                      : "border-slate-100 hover:bg-slate-50"
+                  }`}
                 >
                   <div className="min-w-0 flex-1">
                     <p
-                      className={`
-                    font-bold text-sm truncate
-                    ${active ? "text-primary" : "text-slate-700"}
-                  `}
+                      className={`font-bold text-sm truncate ${
+                        active ? "text-primary" : "text-slate-700"
+                      }`}
                     >
                       {word.text}
                     </p>
-
                     <p className="text-xs text-slate-400">
-                      {progress[i]?.accuracy || 0}% accuracy
+                      {attempt
+                        ? `${attempt.accuracy}% best`
+                        : bestStars(word.id) > 0
+                          ? "Saved"
+                          : "Not tried"}
                     </p>
                   </div>
-
                   <div className="flex gap-0.5 shrink-0">
-                    {[...Array(5)].map((_, s) => (
-                      <Star
-                        key={s}
-                        className={`w-3 h-3 md:w-3.5 md:h-3.5 ${
-                          s < stars
-                            ? "fill-amber-400 text-amber-400"
-                            : "text-slate-200"
-                        }`}
-                      />
-                    ))}
+                    <StarRow
+                      stars={bestStars(word.id)}
+                      className="w-3 h-3 md:w-3.5 md:h-3.5"
+                    />
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>
 
-          {/* Restart */}
           <Button
             onClick={handleRestart}
             variant="outline"
-            className="
-          w-full mt-6
-          h-11 md:h-12 rounded-xl
-          font-bold
-        "
+            className="w-full mt-6 h-11 md:h-12 rounded-xl font-bold"
           >
             <RotateCcw className="w-4 h-4 mr-2" />
             Restart Lesson

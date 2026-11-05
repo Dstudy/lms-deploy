@@ -88,3 +88,18 @@ CREATE TABLE IF NOT EXISTS lesson_links (
   KEY idx_lesson_links_lesson (lesson_id),
   CONSTRAINT fk_ll_lesson FOREIGN KEY (lesson_id) REFERENCES lessons(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Speech-to-text usage (browser SpeechRecognition), used to estimate Azure Speech cost
+CREATE TABLE IF NOT EXISTS speech_usage (
+  id          BIGINT       NOT NULL AUTO_INCREMENT,
+  user_id     VARCHAR(128) NOT NULL,
+  app_id      VARCHAR(128) NULL,
+  word_id     VARCHAR(128) NULL,
+  duration_ms INT          NOT NULL DEFAULT 0,
+  has_result  TINYINT(1)   NOT NULL DEFAULT 0,
+  error_code  VARCHAR(64)  NULL,
+  created_at  TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY idx_speech_usage_created (created_at),
+  KEY idx_speech_usage_app (app_id, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

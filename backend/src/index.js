@@ -9,6 +9,7 @@ const usersRoutes    = require('./routes/users');
 const progressRoutes = require('./routes/progress');
 const lessonsRoutes  = require('./routes/lessons');
 const appsRoutes     = require('./routes/apps');
+const speechUsageRoutes = require('./routes/speechUsage');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use('/api/users',     usersRoutes);
 app.use('/api/progress',  progressRoutes);
 app.use('/api/lessons',   lessonsRoutes);
 app.use('/api/apps',      appsRoutes);
+app.use('/api/speech-usage', speechUsageRoutes);
 
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
 
