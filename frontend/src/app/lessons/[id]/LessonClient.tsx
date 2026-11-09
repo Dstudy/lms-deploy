@@ -683,7 +683,13 @@ export default function LessonClient({ id }: { id: string }) {
                             </p>
                           </div>
 
-                          {link.url && link.url.trim() !== "" && (
+                          {link.url && link.url.trim() !== "" && !/^(https?:\/\/|www\.)\S+$/i.test(link.url.trim()) && (
+                            <p className="text-sm sm:text-base text-slate-500 leading-relaxed break-words whitespace-pre-line">
+                              {link.url}
+                            </p>
+                          )}
+
+                          {link.url && /^(https?:\/\/|www\.)\S+$/i.test(link.url.trim()) && (
                             <Button
                               onClick={() => handleTrackLinkClick(link.url)}
                               className="
